@@ -1,0 +1,7 @@
+visit_id
+visit_number
+client_id
+start_time
+end_time
+visit_date
+undefined

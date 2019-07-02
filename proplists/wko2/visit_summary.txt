@@ -1,0 +1,15 @@
+visit_summary_id
+visit_id
+cues
+holding
+expression
+empathy
+environmental
+rhythmicity
+smiles
+comments
+next_visit_plan
+client_summary_review
+comment_to_reviewer
+reviewer_comments
+undefined
