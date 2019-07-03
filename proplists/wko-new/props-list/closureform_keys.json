@@ -1,0 +1,12 @@
+[
+    {
+        "key": "Visit Date",
+        "label": "Date of Closure",
+        "type": "date"
+    },
+    {
+        "key": "Closure Reason",
+        "label": "Reason for Closure",
+        "type": "textarea"
+    }
+]

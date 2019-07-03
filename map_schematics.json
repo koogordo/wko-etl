@@ -1,0 +1,155 @@
+[
+    {
+        "from": "proplists/wko/adult.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/adult2.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/adultvisits.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/adultvisits2.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/asq.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/contact.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/termination.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/child.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/childvisits.txt",
+        "to": "proplists/wko-new/props-list/adultvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+
+    {
+        "from": "proplists/wko/child.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/child/"
+    },
+    {
+        "from": "proplists/wko/childvisits.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/child/"
+    },
+    {
+        "from": "proplists/wko/asq.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/child/"
+    },
+    {
+        "from": "proplists/wko/contact.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/child/"
+    },
+    {
+        "from": "proplists/wko/adult.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/adult/"
+    },
+    {
+        "from": "proplists/wko/adult2.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/child/"
+    },
+    {
+        "from": "proplists/wko/adultvisits.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/child/"
+    },
+    {
+        "from": "proplists/wko/adultvisits2.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/child/"
+    },
+    {
+        "from": "proplists/wko/termination.txt",
+        "to": "proplists/wko-new/props-list/childvisit_keys.json",
+        "outdir": "maps/child/"
+    },
+    {
+        "from": "proplists/wko/termination.txt",
+        "to": "proplists/wko-new/props-list/closureform_keys.json",
+        "outdir": "maps/termination/"
+    },
+    {
+        "from": "proplists/wko/contact.txt",
+        "to": "proplists/wko-new/props-list/contactmethods_keys.json",
+        "outdir": "maps/contact/"
+    },
+
+    {
+        "from": "proplists/wko/child.txt",
+        "to": "proplists/wko-new/props-list/missedvisit_keys.json",
+        "outdir": "maps/missedvisit/"
+    },
+    {
+        "from": "proplists/wko/childvisits.txt",
+        "to": "proplists/wko-new/props-list/missedvisit_keys.json",
+        "outdir": "maps/missedvisit/"
+    },
+    {
+        "from": "proplists/wko/adult.txt",
+        "to": "proplists/wko-new/props-list/missedvisit_keys.json",
+        "outdir": "maps/missedvisit/"
+    },
+    {
+        "from": "proplists/wko/adult2.txt",
+        "to": "proplists/wko-new/props-list/missedvisit_keys.json",
+        "outdir": "maps/missedvisit/"
+    },
+    {
+        "from": "proplists/wko/adultvisits.txt",
+        "to": "proplists/wko-new/props-list/missedvisit_keys.json",
+        "outdir": "maps/missedvisit/"
+    },
+    {
+        "from": "proplists/wko/adultvisits2.txt",
+        "to": "proplists/wko-new/props-list/missedvisit_keys.json",
+        "outdir": "maps/missedvisit/"
+    },
+
+    {
+        "from": "proplists/wko/adult.txt",
+        "to": "proplists/wko-new/props-list/parentsurvey_keys.json",
+        "outdir": "maps/parentsurvey/"
+    },
+    {
+        "from": "proplists/wko/adult2.txt",
+        "to": "proplists/wko-new/props-list/parentsurvey_keys.json",
+        "outdir": "maps/parentsurvey/"
+    },
+    {
+        "from": "proplists/wko/adultvisits.txt",
+        "to": "proplists/wko-new/props-list/parentsurvey_keys.json",
+        "outdir": "maps/parentsurvey/"
+    },
+    {
+        "from": "proplists/wko/adultvisits2.txt",
+        "to": "proplists/wko-new/props-list/parentsurvey_keys.json",
+        "outdir": "maps/parentsurvey/"
+    }
+]

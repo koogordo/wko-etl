@@ -1,0 +1,1 @@
+[{"key":"Visit Date","label":"Today's Date","type":"date"},{"key":"Contact Attempts","label":"Contact Attempts","type":"question-array"},{"key":"Contact Date","label":"Date of Attempt","type":"date"},{"key":"Contact Notes","label":"Attempt Details","type":"textbox"}]

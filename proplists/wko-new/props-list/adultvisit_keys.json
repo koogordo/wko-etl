@@ -1,0 +1,1882 @@
+[
+    {
+        "key": "Previous Visit Date",
+        "label": "Previous Visit Date",
+        "type": "input-map"
+    },
+    {
+        "key": "Initial Visit Date",
+        "label": "Initial Visit Date for This Client",
+        "type": "date"
+    },
+    {
+        "key": "Correct",
+        "label": "Above \"Previous Visit Date\" Correct (or Empty if First Visit)?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Visit Date",
+        "label": "Visit Date",
+        "type": "date"
+    },
+    {
+        "key": "Visit Time",
+        "label": "Visit Time",
+        "type": "question-group"
+    },
+    {
+        "key": "Visit Time Start",
+        "label": "",
+        "type": "time"
+    },
+    {
+        "key": "Visit Time End",
+        "label": "",
+        "type": "time"
+    },
+    {
+        "key": "Visit Duration",
+        "label": "Visit Duration",
+        "type": "input-map"
+    },
+    {
+        "key": "Client Level",
+        "label": "Client Level",
+        "type": "dropdown"
+    },
+    {
+        "key": "ClientPoints - CO",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "ClientPoints - TR",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Client Score",
+        "label": "Client Score",
+        "type": "input-map"
+    },
+    {
+        "key": "Client Type",
+        "label": "Client Type",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Funding Level",
+        "label": "Funding Level",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Sub Funding Level - Other",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Client Referral Source",
+        "label": "Client Referral Source",
+        "type": "textarea"
+    },
+    {
+        "key": "Previous Client",
+        "label": "Previous Client",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Children's Division",
+        "label": "Children's Division",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "DOB",
+        "label": "Date of Birth",
+        "type": "date"
+    },
+    {
+        "key": "Age",
+        "label": "Age",
+        "type": "input-map"
+    },
+    {
+        "key": "Marital Status",
+        "label": "Marital Status",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Street Address",
+        "label": "Street Address",
+        "type": "question-group"
+    },
+    {
+        "key": "Address Line 1",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Address Line 2",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Address Line 3",
+        "label": "",
+        "type": "question-group"
+    },
+    {
+        "key": "City",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "State",
+        "label": "",
+        "type": "states"
+    },
+    {
+        "key": "Zip Code",
+        "label": "",
+        "type": "number"
+    },
+    {
+        "key": "Phone Numbers",
+        "label": "Phone Numbers",
+        "type": "question-array"
+    },
+    {
+        "key": "Initial Default Phone Number Type",
+        "label": "",
+        "type": "dropdown"
+    },
+    {
+        "key": "Initial Default Phone Number",
+        "label": "",
+        "type": "tel"
+    },
+    {
+        "key": "County",
+        "label": "County",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Other Specify",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Lives Alone",
+        "label": "Lives Alone (not counting children)?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Who Else",
+        "label": "Other Adults Living With Client (check all that apply)",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Who Else Input - Other",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Gender Identity",
+        "label": "Gender Identity",
+        "type": "dropdown"
+    },
+    {
+        "key": "Other ",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Preferred Pronoun",
+        "label": "Preferred Pronouns",
+        "type": "dropdown"
+    },
+    {
+        "key": "Primary Language",
+        "label": "Primary Language",
+        "type": "dropdown"
+    },
+    {
+        "key": "Speaks/Writes English (Spanish)",
+        "label": "Speaks and Writes English",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Specify Primary Lang.",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Speaks/Writes English (Other)",
+        "label": "Speaks and Writes English",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "BMI - QG",
+        "label": "BMI",
+        "type": "question-group"
+    },
+    {
+        "key": "Height",
+        "label": "Height",
+        "type": "question-group"
+    },
+    {
+        "key": "Height (ft)",
+        "label": "",
+        "type": "number"
+    },
+    {
+        "key": "Height (In)",
+        "label": "",
+        "type": "number"
+    },
+    {
+        "key": "Weight",
+        "label": "Weight",
+        "type": "question-group"
+    },
+    {
+        "key": "Current Weight",
+        "label": "Current Weight",
+        "type": "number"
+    },
+    {
+        "key": "Previous Weight",
+        "label": "Previous Weight (lb)",
+        "type": "input-map"
+    },
+    {
+        "key": "Weight Change",
+        "label": "Weight Change (lb)",
+        "type": "input-map"
+    },
+    {
+        "key": "No Weight Given",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "New BMI - QG",
+        "label": "New BMI",
+        "type": "question-group"
+    },
+    {
+        "key": "New BMI",
+        "label": "",
+        "type": "input-map"
+    },
+    {
+        "key": "Race",
+        "label": "Race",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "MultipleRaces",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Other Race (Multi)",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Other Race (Single)",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Employment Status",
+        "label": "Employment Status",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Retired",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Disabled",
+        "label": "Disabled?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "FT Stay-At-Home Parent",
+        "label": "FT Stay-At-Home Parent?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Relationship to Child",
+        "label": "Relationship to Child(ren).  Choose the most correct value.",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Specify Relationship",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Income",
+        "label": "Income",
+        "type": "input-map"
+    },
+    {
+        "key": "Previous Income",
+        "label": "Previous Income",
+        "type": "input-map"
+    },
+    {
+        "key": "Household Members",
+        "label": "Members in Household",
+        "type": "number"
+    },
+    {
+        "key": "Type of Aid",
+        "label": "Type of Aid (check all that apply)",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Type of Aid - Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Emergency Contact Name",
+        "label": "Name",
+        "type": "question-group"
+    },
+    {
+        "key": "EC First Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "EC Last Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "EC Relationship",
+        "label": "Relationship",
+        "type": "textarea"
+    },
+    {
+        "key": "EC Phone Numbers",
+        "label": "Phone Numbers",
+        "type": "question-array"
+    },
+    {
+        "key": "Initial Default EC Phone Number Type",
+        "label": "",
+        "type": "dropdown"
+    },
+    {
+        "key": "Initial Default EC Phone Number",
+        "label": "",
+        "type": "tel"
+    },
+    {
+        "key": "Parenting Partner",
+        "label": "Is there currently a parenting partner?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Parenting Partner Name",
+        "label": "Parenting Partner Name",
+        "type": "question-group"
+    },
+    {
+        "key": "PP First Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "PP Last Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "PP Relationship",
+        "label": "Relationship",
+        "type": "textarea"
+    },
+    {
+        "key": "PP Employment Status",
+        "label": "Parenting Partner Employment Status",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "PP Retired",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "PP Disabled",
+        "label": "Parenting Partner Disabled?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "PP Schooling Status",
+        "label": "Parenting Partner In School?",
+        "type": "dropdown"
+    },
+    {
+        "key": "PP Current Schooling Level",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "PP Specify Other Schooling",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "PP FT Stay-At-Home Parent",
+        "label": "Parenting Partner FT Stay-At-Home Parent?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Insurance",
+        "label": "Type of Insurance",
+        "type": "question-group"
+    },
+    {
+        "key": "Medicaid Number",
+        "label": "Medicaid Number",
+        "type": "number"
+    },
+    {
+        "key": "Status",
+        "label": "Status",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Other Insurance",
+        "label": "Other Insurance",
+        "type": "textarea"
+    },
+    {
+        "key": "Other Insurance Status",
+        "label": "Status",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Medical Provider Name",
+        "label": "Medical Provider Name",
+        "type": "question-group"
+    },
+    {
+        "key": "Medical Provider First Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Medical Provider Last Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Medical Visits Primary",
+        "label": "Visits with Primary Medical Provider (scheduled or unscheduled)",
+        "type": "question-array"
+    },
+    {
+        "key": "PMP Appointment Date",
+        "label": "Appointment Date",
+        "type": "date"
+    },
+    {
+        "key": "Appointment Scheduled",
+        "label": "Appointment Scheduled?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Primary Appointment Kept",
+        "label": "Kept this appointment?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Reason Primary Appt Unmet",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Reason unscheduled",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Other healthcare provider",
+        "label": "Has the client seen another healthcare provider since the last home visit?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Other MP",
+        "label": "Visits to other (non-primary) medical providers ",
+        "type": "question-array"
+    },
+    {
+        "key": "Date Other MP",
+        "label": "Date of Visit",
+        "type": "date"
+    },
+    {
+        "key": "Reason other MP",
+        "label": "Reason for Visit",
+        "type": "textarea"
+    },
+    {
+        "key": "Specialists",
+        "label": "Specialists the client sees or has seen",
+        "type": "question-array"
+    },
+    {
+        "key": "Specialist Name",
+        "label": "Specialist's Name",
+        "type": "question-group"
+    },
+    {
+        "key": "Specialist FName",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Specialist LName",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Specialty",
+        "label": "Specialty",
+        "type": "textbox"
+    },
+    {
+        "key": "Specialist Appointments",
+        "label": "Appointments with this Specialist",
+        "type": "question-array"
+    },
+    {
+        "key": "Specialist App. Date",
+        "label": "Appointment Date",
+        "type": "date"
+    },
+    {
+        "key": "Kept Specialist Appointment",
+        "label": "Kept this appointment?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Specify Missed Spec. Appt.",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Therapist",
+        "label": "Currently seeing a counselor or therapist?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Therapist's Name",
+        "label": "Therapist's Name",
+        "type": "question-group"
+    },
+    {
+        "key": "Therapist First Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Therapist Last Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Current Medical Conditions",
+        "label": "Any current medical conditions? ",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Specify Medical Conditions",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Therapist Appointments",
+        "label": "Therapist Appointments",
+        "type": "question-array"
+    },
+    {
+        "key": "Therapy Appointment Date",
+        "label": "Appointment Date",
+        "type": "date"
+    },
+    {
+        "key": "Kept Therapy Appointment",
+        "label": "Kept this Appointment?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Kept Therapy Appointment - Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Allergies",
+        "label": "Allergies",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Diabetes",
+        "label": "Diabetes",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Smoker (present)-Client",
+        "label": "Smoker (present)-Client",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Smoker (present)-Household Members, Friends, etc.",
+        "label": "Smoker (present)-Household Members, Friends, etc.",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Heart disease",
+        "label": "Heart disease",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "HIV Positive",
+        "label": "HIV Positive",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Hypertension",
+        "label": "Hypertension",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Kidney disease",
+        "label": "Kidney disease",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Psychiatric history",
+        "label": "Psychiatric history",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Seizure disorder",
+        "label": "Seizure disorder",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Cervical problems",
+        "label": "Cervical problems",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "STD's",
+        "label": "STD's",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Medical History - Other",
+        "label": "Other",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Specify Other Medical History",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "History of Abuse",
+        "label": "New History of Abuse/Neglect",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Specify Abuse",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Depression Assessment",
+        "label": "Depression Assessments",
+        "type": "question-array"
+    },
+    {
+        "key": "Date of Depression Assessment",
+        "label": "",
+        "type": "date"
+    },
+    {
+        "key": "Depression Assessment Score",
+        "label": "",
+        "type": "number"
+    },
+    {
+        "key": "Score too high",
+        "label": "Depression Score 13 or Higher?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Depression Score Alert",
+        "label": "Supervisor Contacted?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Reason",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Currently Pregnant",
+        "label": "Currently Pregnant",
+        "type": "dropdown"
+    },
+    {
+        "key": "Due Date",
+        "label": "Due Date",
+        "type": "date"
+    },
+    {
+        "key": "Subsequent Pregnancy",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Gestational Age",
+        "label": "Gestational Age",
+        "type": "input-map"
+    },
+    {
+        "key": "Trimester",
+        "label": "Trimester",
+        "type": "input-map"
+    },
+    {
+        "key": "Receiving Prenatal Care",
+        "label": " Currently receiving prenatal care?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Gest. Week Prenatal Care Began",
+        "label": "Gestational week prenatal care began",
+        "type": "number"
+    },
+    {
+        "key": "Previous Prenatal Care Visits",
+        "label": "Previous number of prenatal care visits",
+        "type": "input-map"
+    },
+    {
+        "key": "Number Prenatal Care Visits",
+        "label": "Number of prenatal care visits to date",
+        "type": "number"
+    },
+    {
+        "key": "Adequate Prenatal Care",
+        "label": "Currently receiving adequate prenatal care",
+        "type": "input-map"
+    },
+    {
+        "key": "Satisfied With Prenatal Care",
+        "label": "Satisfied with prenatal care?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Not Satisfied with Prenatal Care Reason",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Pregnancy Wanted",
+        "label": "Is this pregnancy wanted now?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Previous Pregnancies",
+        "label": "Were there any previous pregnancies?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Number of Pregnancies",
+        "label": "Number of Previous Pregnancies",
+        "type": "number"
+    },
+    {
+        "key": "Number of Live Births",
+        "label": "Number of Live Births",
+        "type": "number"
+    },
+    {
+        "key": "Number of Living Children",
+        "label": "Number of Living Children",
+        "type": "number"
+    },
+    {
+        "key": "Last Delivery Date",
+        "label": "Date of last delivery",
+        "type": "date"
+    },
+    {
+        "key": "Had Previous Pregnancy Complications",
+        "label": "In your previous pregnancy(ies), did you have any complications?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Induced Miscarriages",
+        "label": "Number of induced miscarriages",
+        "type": "number"
+    },
+    {
+        "key": "Spontaneous Miscarriages",
+        "label": "Number of spontaneous miscarriages",
+        "type": "number"
+    },
+    {
+        "key": "Fetal Deaths",
+        "label": "Number of fetal deaths (>= 20 wks)",
+        "type": "number"
+    },
+    {
+        "key": "Neonatal Deaths",
+        "label": "Number of neonatal deaths (<= 28 days)",
+        "type": "number"
+    },
+    {
+        "key": "Pre-term labors",
+        "label": "Number of incidents of pre-term labors",
+        "type": "number"
+    },
+    {
+        "key": "Pre-term Deliveries",
+        "label": "Number of pre-term deliveries(< 37 weeks)",
+        "type": "number"
+    },
+    {
+        "key": "Low Birth Weight Babies",
+        "label": "Number of low birth weight babies (<= 5 lb. 8 oz.)",
+        "type": "number"
+    },
+    {
+        "key": "Multi Gestations",
+        "label": "Number of multi gestations",
+        "type": "number"
+    },
+    {
+        "key": "C-sections",
+        "label": "Number of C-sections",
+        "type": "number"
+    },
+    {
+        "key": "Labor/Delivery Complications",
+        "label": "Number of labor/delivery complications",
+        "type": "number"
+    },
+    {
+        "key": "Health or Medical Concerns - Pregnancy",
+        "label": "What health or medical concerns did client have based on past or present pregnancy?",
+        "type": "textarea"
+    },
+    {
+        "key": "Concern Resolved",
+        "label": "Concern Resolved?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Avg Weight Change - Previous Pregnancy",
+        "label": "",
+        "type": "question-group"
+    },
+    {
+        "key": "Weight Change - Pregnancy (lbs)",
+        "label": "Average weight gain or loss during previous pregnancies?",
+        "type": "number"
+    },
+    {
+        "key": "Reason for Weight Change",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Reason Explanation",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Participates in the Community",
+        "label": "Did the client participate in the community since last visit?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Participates in the Community - Where",
+        "label": "Where?",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Community Club Detail",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Church Group Detail",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Volunteer Detail",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Volunteer Hours",
+        "label": "Volunteer Hours Since Last Visit",
+        "type": "number"
+    },
+    {
+        "key": "Previous Total Hours",
+        "label": "Previous Total Hours",
+        "type": "input-map"
+    },
+    {
+        "key": "New Total Hours",
+        "label": "New Total Hours",
+        "type": "input-map"
+    },
+    {
+        "key": "Employment Skills - Attitude",
+        "label": "1. Attitude",
+        "type": "question-group"
+    },
+    {
+        "key": "1. Attitude - Q1",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 1. Attitude - Q1",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "1. Attitude - Q2",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 1. Attitude - Q2",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "1. Attitude - Q3",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 1. Attitude - Q3",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "1. Attitude - Q4",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 1. Attitude - Q4",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "1. Attitude - Q5",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 1. Attitude - Q5",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "1. Attitude - Total",
+        "label": "Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Prev - 1. Attitude - Total",
+        "label": "Prev. Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Employment Skills - Responsibility",
+        "label": "2. Responsibility",
+        "type": "question-group"
+    },
+    {
+        "key": "2. Responsibility - Q1",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 2. Responsibility - Q1",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "2. Responsibility - Q2",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 2. Responsibility - Q2",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "2. Responsibility - Q3",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 2. Responsibility - Q3",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "2. Responsibility - Q4",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 2. Responsibility - Q4",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "2. Responsibility - Q5",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 2. Responsibility - Q5",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "2. Responsibility - Total",
+        "label": "Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Prev - 2. Responsibility - Total",
+        "label": "Prev. Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Employment Skills - Communication",
+        "label": "3. Communication",
+        "type": "question-group"
+    },
+    {
+        "key": "3. Communication - Q1",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 3. Communication - Q1",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "3. Communication - Q2",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 3. Communication - Q2",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "3. Communication - Q3",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 3. Communication - Q3",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "3. Communication - Q4",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 3. Communication - Q4",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "3. Communication - Q5",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 3. Communication - Q5",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "3. Communication - Total",
+        "label": "Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Prev - 3. Communication - Total",
+        "label": "Prev. Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Employment Skills - Problem Solving Skills",
+        "label": "4. Problem Solving Skills",
+        "type": "question-group"
+    },
+    {
+        "key": "4. Problem Solving Skills - Q1",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 4. Problem Solving Skills - Q1",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "4. Problem Solving Skills - Q2",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 4. Problem Solving Skills - Q2",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "4. Problem Solving Skills - Q3",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 4. Problem Solving Skills - Q3",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "4. Problem Solving Skills - Q4",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 4. Problem Solving Skills - Q4",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "4. Problem Solving Skills - Q5",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 4. Problem Solving Skills - Q5",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "4. Problem Solving Skills - Total",
+        "label": "Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Prev - 4. Problem Solving Skills - Total",
+        "label": "Prev. Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Employment Skills - Workplace Preperation Skills",
+        "label": "5. Workplace Preparation Skills",
+        "type": "question-group"
+    },
+    {
+        "key": "5. Workplace Preparation Skills - Q1",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 5. Workplace Preparation Skills - Q1",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "5. Workplace Preparation Skills - Q2",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 5. Workplace Preparation Skills - Q2",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "5. Workplace Preparation Skills - Q3",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 5. Workplace Preparation Skills - Q3",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "5. Workplace Preparation Skills - Q4",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 5. Workplace Preparation Skills - Q4",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "5. Workplace Preparation Skills - Q5",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Prev - 5. Workplace Preparation Skills - Q5",
+        "label": "Prev:",
+        "type": "input-map"
+    },
+    {
+        "key": "5. Workplace Preparation Skills - Total",
+        "label": "Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Prev - 5. Workplace Preparation Skills - Total",
+        "label": "Prev. Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Employment Skills Total",
+        "label": "Assessment Total: ",
+        "type": "input-map"
+    },
+    {
+        "key": "Prev - Employment Skills Total",
+        "label": "Prev. Assessment Total:",
+        "type": "input-map"
+    },
+    {
+        "key": "Schooling Status",
+        "label": "In School?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Current Schooling Level",
+        "label": "",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Specify Other Schooling",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Education History",
+        "label": "Current and Past Education - Most Relevant",
+        "type": "question-array"
+    },
+    {
+        "key": "Education Type",
+        "label": "Education Type",
+        "type": "dropdown"
+    },
+    {
+        "key": "Pre High School Completion Grade",
+        "label": "Pre High School Completion Grade",
+        "type": "dropdown"
+    },
+    {
+        "key": "Where - High School",
+        "label": "Where?",
+        "type": "textarea"
+    },
+    {
+        "key": "High School Diploma",
+        "label": "High School Diploma?",
+        "type": "dropdown"
+    },
+    {
+        "key": "Date of Diploma",
+        "label": "",
+        "type": "date"
+    },
+    {
+        "key": "Currently Enrolled",
+        "label": "Currently Enrolled?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Highest Grade ",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Attending GED Classes",
+        "label": "Attending GED Classes?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "GED Classes Start",
+        "label": "",
+        "type": "date"
+    },
+    {
+        "key": "GED Classes Complete",
+        "label": "",
+        "type": "date"
+    },
+    {
+        "key": "College Completed",
+        "label": "College Completed",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Vocational School Name",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Vocational School City",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Vocational School State",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Field of Study",
+        "label": "Field or Area of Study/Training",
+        "type": "textarea"
+    },
+    {
+        "key": "Completed",
+        "label": "Study Completed?",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Date of Completion",
+        "label": "Date of Completion",
+        "type": "date"
+    },
+    {
+        "key": "Expected Completion Date",
+        "label": "Expected Completion",
+        "type": "date"
+    },
+    {
+        "key": "Specify Cert/Liscense",
+        "label": "Name of Certification",
+        "type": "textarea"
+    },
+    {
+        "key": "Referral",
+        "label": "",
+        "type": "question-array"
+    },
+    {
+        "key": "Date of Referral",
+        "label": "Date of Referral",
+        "type": "date"
+    },
+    {
+        "key": "Referral Category",
+        "label": "Referral Category",
+        "type": "dropdown"
+    },
+    {
+        "key": "Other Reason",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Referred To",
+        "label": "Referred To",
+        "type": "textarea"
+    },
+    {
+        "key": "Utilized?",
+        "label": "Utilized?",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Circle of Support",
+        "label": "People of Support",
+        "type": "question-array"
+    },
+    {
+        "key": "Initial Default People of Support - Name",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Initial Default People of Support - Relationship",
+        "label": "",
+        "type": "textbox"
+    },
+    {
+        "key": "Family Goal Plan",
+        "label": "Family Goal Plan",
+        "type": "question-array"
+    },
+    {
+        "key": "Issue - Family Goal Plan",
+        "label": "Goal",
+        "type": "textarea"
+    },
+    {
+        "key": "Strengths to build on",
+        "label": "Strengths",
+        "type": "textarea"
+    },
+    {
+        "key": "Issue Resolved",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Date Resolved",
+        "label": "",
+        "type": "date"
+    },
+    {
+        "key": "Mini Goals",
+        "label": "Mini Goals",
+        "type": "question-array"
+    },
+    {
+        "key": "Mini Goal Date",
+        "label": "",
+        "type": "date"
+    },
+    {
+        "key": "Mini Goal",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Means to complete",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Date to Complete",
+        "label": "",
+        "type": "date"
+    },
+    {
+        "key": "Date Completed",
+        "label": "",
+        "type": "date"
+    },
+    {
+        "key": "Outcome/Comments",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "spacer",
+        "label": "   ",
+        "type": "textbox"
+    },
+    {
+        "key": "spacer2",
+        "label": "   ",
+        "type": "textbox"
+    },
+    {
+        "key": "Child Development Info",
+        "label": "Provided information on child development",
+        "type": "dropdown"
+    },
+    {
+        "key": "CD Information Subject/Topic",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "CD Information Source",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Module",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Improved Knowledge",
+        "label": "Parent demonstrated new or improved knowledge about child development",
+        "type": "dropdown"
+    },
+    {
+        "key": "Improved CD Knowledge Description",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Cues",
+        "label": "CUES",
+        "type": "question-group"
+    },
+    {
+        "key": "Cues Observations",
+        "label": "Observations ",
+        "type": "textarea"
+    },
+    {
+        "key": "Cues Frequency",
+        "label": "Frequency",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Cues Strategies",
+        "label": "Strategies",
+        "type": "dropdown"
+    },
+    {
+        "key": "Cues Strategies Used",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Cues Other Strategies - Other",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Cues Notes Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Holding",
+        "label": "Holding",
+        "type": "question-group"
+    },
+    {
+        "key": "Holding Observations",
+        "label": "Observations ",
+        "type": "textarea"
+    },
+    {
+        "key": "Holding Frequency",
+        "label": "Frequency",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Holding Strategies",
+        "label": "Strategies",
+        "type": "dropdown"
+    },
+    {
+        "key": "Holding Strategies Used",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Holding Other Strategies Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Holding Notes Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Expression",
+        "label": "Expression",
+        "type": "question-group"
+    },
+    {
+        "key": "Expression Observations",
+        "label": "Observations ",
+        "type": "textarea"
+    },
+    {
+        "key": "Expression Frequency",
+        "label": "Frequency",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Expression Strategies",
+        "label": "Strategies",
+        "type": "dropdown"
+    },
+    {
+        "key": "Expression Strategies Used",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Other Expression Strategies Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Expression Notes Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Empathy",
+        "label": "Empathy",
+        "type": "question-group"
+    },
+    {
+        "key": "Empathy Observations",
+        "label": "Observations ",
+        "type": "textarea"
+    },
+    {
+        "key": "Empathy Frequency",
+        "label": "Frequency",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Empathy Strategies",
+        "label": "Strategies",
+        "type": "dropdown"
+    },
+    {
+        "key": "Empathy Strategies Used",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Empathy Other Strategies Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Empathy Notes Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Rhythmicity/Reciprosity",
+        "label": "Rhythmicity/Reciprosity",
+        "type": "question-group"
+    },
+    {
+        "key": "Rhythmicity/Reciprosity Observations",
+        "label": "Observations ",
+        "type": "textarea"
+    },
+    {
+        "key": "Rhythmicity/Reciprosity Frequency",
+        "label": "Frequency",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Rhythmicity/Reciprosity Strategies",
+        "label": "Strategies",
+        "type": "dropdown"
+    },
+    {
+        "key": "Rhythmicity/Reciprosity Strategies Used",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Rhythmicity/Reciprosity Other Strategies Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Rhythmicity/Reciprosity Notes Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Smiles",
+        "label": "Smiles",
+        "type": "question-group"
+    },
+    {
+        "key": "Smiles Observations",
+        "label": "Observations ",
+        "type": "textarea"
+    },
+    {
+        "key": "Smiles Frequency",
+        "label": "Frequency",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Smiles Strategies",
+        "label": "Strategies",
+        "type": "dropdown"
+    },
+    {
+        "key": "Smiles Strategies Used",
+        "label": "",
+        "type": "checkboxes"
+    },
+    {
+        "key": "Smiles Other Strategies Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Smiles Notes Specify",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Additonal Comments",
+        "label": "Additional Comments",
+        "type": "textarea"
+    },
+    {
+        "key": "Actions During this Visit",
+        "label": "Actions During this Visit",
+        "type": "question-group"
+    },
+    {
+        "key": "Information/Handouts Provided",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Incentive(s) Given",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Incentive Points Redeemed",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Books Given",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Plan for Next Visit",
+        "label": "Plan for Next Visit",
+        "type": "question-group"
+    },
+    {
+        "key": "Topic",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Planned Method",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Goal for Next Visit",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Next Visit Date",
+        "label": "Next Visit Date:",
+        "type": "date"
+    },
+    {
+        "key": "Next Visit Time",
+        "label": "Next Visit Time:",
+        "type": "time"
+    },
+    {
+        "key": "Reviewed Summary",
+        "label": "Reviewed Summary with Client",
+        "type": "radio-buttons"
+    },
+    {
+        "key": "Reason",
+        "label": "",
+        "type": "textarea"
+    },
+    {
+        "key": "Client Name",
+        "label": "Client Name",
+        "type": "textbox"
+    },
+    {
+        "key": "Client Number",
+        "label": "Client Number",
+        "type": "textbox"
+    },
+    {
+        "key": "Sp-Visit Date",
+        "label": "Date of Visit",
+        "type": "input-map"
+    },
+    {
+        "key": "Sp-Start Time",
+        "label": "Start Time",
+        "type": "input-map"
+    },
+    {
+        "key": "Sp-End Time",
+        "label": "End Time",
+        "type": "input-map"
+    },
+    {
+        "key": "Sp-Visit Duration",
+        "label": "Visit Duration",
+        "type": "input-map"
+    },
+    {
+        "key": "SP-HFA Level",
+        "label": "HFA Level",
+        "type": "input-map"
+    },
+    {
+        "key": "SP-HFA Points",
+        "label": "HFA Points",
+        "type": "input-map"
+    },
+    {
+        "key": "Sp-Present as Visit",
+        "label": "Other People Present During Visit",
+        "type": "textarea"
+    },
+    {
+        "key": "SP-Curriculum",
+        "label": "Curriculum",
+        "type": "input-map"
+    },
+    {
+        "key": "Sp-Module",
+        "label": "Module",
+        "type": "input-map"
+    }
+]
