@@ -2,8 +2,7 @@ const ftools = require('./wko-forms');
 const wko = require('./db').wko;
 const avt = require('./form-templates/adultvisit').aVisitTemplate;
 const cvt = require('./form-templates/childvisit').cVisitTemplate;
-const at = require('./form-templates/adult').adultTemplate;
-const ct = require('./form-templates/child').childTemplate;
+
 const clt = require('./form-templates/contactlog').contactLogTemplate;
 const cmt = require('./form-templates/contactmethods').contactMethodsTemplate;
 const mvt = require('./form-templates/missedvisit').missedVisitsTemplate;

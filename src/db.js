@@ -6,3 +6,4 @@ exports.wko = mysql.createConnection({
     password: 'GBP@ck3rs#1',
     database: 'wko'
 });
+
