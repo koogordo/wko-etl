@@ -1,0 +1,86 @@
+exports.terminationTemplate = JSON.parse(`{
+    "formID": "54blankForm%004Termination%20Form%00%00",
+    "formRev": "",
+    "name": "Closure Form",
+    "description": "",
+    "client": "",
+    "os": "",
+    "allowedClientTypes": ["adult", "child"],
+    "tabs": [
+        {
+            "name": "Closure Form",
+            "description": "",
+            "sections": [
+                {
+                    "name": "",
+                    "description": "",
+                    "rows": [
+                        {
+                            "columnGap": 0,
+                            "columns": [
+                                {
+                                    "width": "300px",
+                                    "offset": 0,
+                                    "questions": [
+                                        {
+                                            "key": "Visit Date",
+                                            "label": "Date of Closure",
+                                            "labelPosition": "left",
+                                            "labelWidth": "140px",
+                                            "type": "date",
+                                            "description": "",
+                                            "required": false,
+                                            "notes": [],
+                                            "validators": null,
+                                            "usePreviousValue": false,
+                                            "input": "",
+                                            "default": "",
+                                            "maxDate": "",
+                                            "minDate": "",
+                                            "defaultToday": false,
+                                            "placeholder": "Select Date",
+                                            "hint": "",
+                                            "initialLoad": false
+                                        }
+                                    ],
+                                    "align": "auto"
+                                }
+                            ]
+                        },
+                        {
+                            "columnGap": 0,
+                            "columns": [
+                                {
+                                    "width": "800px",
+                                    "offset": 0,
+                                    "questions": [
+                                        {
+                                            "key": "Closure Reason",
+                                            "label": "Reason for Closure",
+                                            "labelPosition": "left",
+                                            "labelWidth": "140px",
+                                            "type": "textarea",
+                                            "description": "",
+                                            "required": false,
+                                            "notes": [],
+                                            "validators": null,
+                                            "usePreviousValue": false,
+                                            "input": "",
+                                            "default": "",
+                                            "placeholder": "",
+                                            "hint": "",
+                                            "initialLoad": false
+                                        }
+                                    ],
+                                    "align": "auto"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "status": []
+}
+`);

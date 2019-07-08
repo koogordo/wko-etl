@@ -1,4 +1,4 @@
-{
+exports.adultVisitKeys = JSON.parse(`{
     "Previous Visit Date": "",
     "Initial Visit Date": "InitialVisitDate",
     "Correct": "",
@@ -374,4 +374,4 @@
     "Sp-Present as Visit": "",
     "SP-Curriculum": "",
     "Sp-Module": ""
-}
+}`);

@@ -1,4 +1,4 @@
-{
+exports.adultKeys = JSON.parse(`{
     "Date Parent Added": "",
     "Parent Name": "",
     "Parent FName": "First",
@@ -8,4 +8,4 @@
     "Parent SSN": "",
     "SSN Updated": "",
     "Date SSN Changed": ""
-}
+}`)

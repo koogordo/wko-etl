@@ -32,7 +32,8 @@ const getKeys = (formNode, acc) => {
         }
     } else if (formNode.questions) {
         formNode.questions.forEach((question) => {
-            acc.push({ key: question.key, label: question.label, type: question.type });
+            // acc.push({ key: question.key, label: question.label, type: question.type });
+            acc[question.key] = '';
             if (question.options) {
                 for (const optionControl of question.options) {
                     if (optionControl.rows.length > 0) {
@@ -58,7 +59,7 @@ const jsonFilePaths = dir.files('proplists/wko-new/json', { sync: true });
 jsonFilePaths.forEach((path) => {
     const formJson = require('fs').readFileSync(path);
     const formNode = JSON.parse(formJson);
-    const keys = [];
+    const keys = {};
 
     getKeys(formNode, keys);
     const writeStream = require('fs').createWriteStream(

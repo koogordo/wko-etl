@@ -1,4 +1,4 @@
-{
+exports.childVisitKeys = JSON.parse(`{
     "Previous Visit Date": "LastVisitDate",
     "Initial Visit Date": "InitialVisitDate",
     "Correct": "",
@@ -141,4 +141,4 @@
     "ASQ-SE Date": "",
     "Visit Summary": "",
     "Reviewed W/ Client": ""
-}
+}`);

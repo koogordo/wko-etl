@@ -1,4 +1,4 @@
-{
+exports.childKeys = JSON.parse(`{
     "Date Child Added": "VisitDate",
     "Child Name": "",
     "Child FName": "First",
@@ -8,4 +8,4 @@
     "Child SSN": "SSN",
     "SSN Updated": "",
     "Date SSN Changed": ""
-}
+}`);
