@@ -1,19 +1,23 @@
 {
     "Previous Visit Date": "",
     "Initial Visit Date": "InitialVisitDate",
-    "Correct": "",
+    "Correct": true,
     "Visit Date": "VisitDate",
-    "Visit Time": "",
+    "Visit Time": "----",
     "Visit Time Start": "StartTime",
     "Visit Time End": "EndTime",
-    "Visit Duration": "",
+    "Visit Duration": {
+        "type":"input-map",
+        "function":"timeDuration",
+        "inputs": ["StartTime","EndTime"]
+    },
     "Client Level": "ClientLevel",
-    "ClientPoints - CO": "",
-    "ClientPoints - TR": "",
+    "ClientPoints - CO": "----",
+    "ClientPoints - TR": "----",
     "Client Score": "ClientScore",
     "Client Type": "ClientType",
     "Funding Level": "",
-    "Sub Funding Level - Other": "",
+    "Sub Funding Level - Other": "****",
     "Client Referral Source": "ReferredBy",
     "Previous Client": "PreviousClient",
     "Children's Division": "",
@@ -23,13 +27,27 @@
     "Street Address": "",
     "Address Line 1": "Address",
     "Address Line 2": "",
-    "Address Line 3": "",
+    "Address Line 3": "----",
     "City": "City",
     "State": "State",
     "Zip Code": "Zip",
-    "Phone Numbers": "HomePhone,WorkPhone,OtherPhone",
-    "Initial Default Phone Number Type": "",
-    "Initial Default Phone Number": "",
+    "Phone Numbers": {
+        "type":"question-array",
+        "inputs": [
+            {
+                "inp1":"*Home",
+                "inp2":"HomePhone"
+            }, 
+            {
+                "inp1":"*Work",
+                "inp2":"WorkPhone"
+            }, 
+            {
+                "inp1":"*Other",
+                "inp2":"OtherPhone"
+            }
+        ]
+    },
     "County": "County",
     "Other Specify": "",
     "Lives Alone": "",
@@ -42,7 +60,7 @@
     "Speaks/Writes English (Spanish)": "",
     "Specify Primary Lang.": "",
     "Speaks/Writes English (Other)": "",
-    "BMI - QG": "BMI",
+    "BMI - QG": "----",
     "Height": "",
     "Height (ft)": "",
     "Height (In)": "",
@@ -52,7 +70,7 @@
     "Weight Change": "",
     "No Weight Given": "",
     "New BMI - QG": "",
-    "New BMI": "",
+    "New BMI": "BMI",
     "Race": "Race",
     "MultipleRaces": "",
     "Other Race (Multi)": "",
@@ -68,16 +86,37 @@
     "Household Members": "",
     "Type of Aid": "",
     "Type of Aid - Specify": "",
-    "Emergency Contact Name": "EmergencyContactName",
-    "EC First Name": "",
+    "Emergency Contact Name": "----",
+    "EC First Name": "EmergencyContactName",
     "EC Last Name": "",
     "EC Relationship": "EmergencyContactRelationship",
-    "EC Phone Numbers": "EmergencyContactHomePhone,EmergencyContactWorkPhone,EmergencyContactOtherPhone",
-    "Initial Default EC Phone Number Type": "",
-    "Initial Default EC Phone Number": "",
-    "Parenting Partner": "",
-    "Parenting Partner Name": "ParentingPartnerName",
-    "PP First Name": "",
+    "EC Phone Numbers": {
+        "type":"question-array",
+        "inputs": [
+            {
+                "inp1":"*Home",
+                "inp2":"EmergencyContactHomePhone"
+            }, 
+            {
+                "inp1":"*Work",
+                "inp2":"EmergencyContactWorkPhone"
+            }, 
+            {
+                "inp1":"*Other",
+                "inp2":"EmergencyContactOtherPhone"
+            }
+        ]
+    },
+    "Initial Default EC Phone Number Type": "----",
+    "Initial Default EC Phone Number": "----",
+    "Parenting Partner": {
+        "type":"conditional",
+        "if":"ParentingPartnerName",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Parenting Partner Name": "----",
+    "PP First Name": "ParentingPartnerName",
     "PP Last Name": "",
     "PP Relationship": "ParentingPartnerRelationship",
     "PP Employment Status": "",
@@ -89,7 +128,11 @@
     "PP FT Stay-At-Home Parent": "",
     "Insurance": "Insurance",
     "Medicaid Number": "MedicaidNumber",
-    "Status": "MedicaidPending",
+    "Status": {
+        "if":"MedicaidPending",
+        "then":"Pending",
+        "else":""
+    },
     "Other Insurance": "",
     "Other Insurance Status": "",
     "Medical Provider Name": "",
@@ -105,44 +148,186 @@
     "Other MP": "",
     "Date Other MP": "",
     "Reason other MP": "",
-    "Specialists": "",
-    "Specialist Name": "",
-    "Specialist FName": "SpecialistFirstName,SpecialistFirstName2,SpecialistFirstName3,SpecialistFirstName4,SpecialistFirstName5",
-    "Specialist LName": "SpecialistLastName,SpecialistLastName2,SpecialistLastName3,SpecialistLastName4,SpecialistLastName5",
-    "Specialty": "SpecialistField,SpecialistField2,SpecialistField3,SpecialistField4,SpecialistField5",
+    "Specialists": {
+        "type":"question-array",
+        "inputs": [
+            {
+                "inp1":"SpecialistFirstName",
+                "inp2":"SpecialistLastName",
+                "inp3":"SpecialistField",
+                "inp4":"SpecialistNextVisit",
+                "inp5":"KeptLastSpecialistAppointment1"
+            },
+            {
+                "inp1":"SpecialistFirstName2",
+                "inp2":"SpecialistLastName2",
+                "inp3":"SpecialistField2",
+                "inp4":"Specialist2NextVisit",
+                "inp5":"KeptLastSpecialistAppointment2"
+            },
+            {
+                "inp1":"SpecialistFirstName3",
+                "inp2":"SpecialistLastName3",
+                "inp3":"SpecialistField3",
+                "inp4":"Specialist3NextVisit",
+                "inp5":""
+            },
+            {
+                "inp1":"SpecialistFirstName4",
+                "inp2":"SpecialistLastName4",
+                "inp3":"SpecialistField4",
+                "inp4":"Specialist4NextVisit",
+                "inp5":""
+            },
+            {
+                "inp1":"SpecialistFirstName5",
+                "inp2":"SpecialistLastName5",
+                "inp3":"SpecialistField5",
+                "inp4":"Specialist5NextVisit",
+                "inp5":""
+            }
+        ]
+    },
+    "Specialist Name": "----",
     "Specialist Appointments": "",
-    "Specialist App. Date": "SpecialistNextVisit,Specialist2NextVisit,Specialist3NextVisit,Specialist4NextVisit,Specialist5NextVisit",
-    "Kept Specialist Appointment": "KeptLastSpecialistAppointment1,KeptLastSpecialistAppointment2",
     "Specify Missed Spec. Appt.": "",
-    "Therapist": "Therapy",
-    "Therapist's Name": "",
+    "Therapist": {
+        "if":"Therapy",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Therapist's Name": "----",
     "Therapist First Name": "FirstNameOfTherapist",
     "Therapist Last Name": "LastNameOfTherapist",
     "Current Medical Conditions": "",
     "Specify Medical Conditions": "SpecifyCurrentMedicalConditions",
-    "Therapist Appointments": "",
-    "Therapy Appointment Date": "DateOfTherapy",
-    "Kept Therapy Appointment": "KeptLastTherapyAppointment",
-    "Kept Therapy Appointment - Specify": "",
-    "Allergies": "Allergies",
-    "Diabetes": "Diabetes",
-    "Smoker (present)-Client": "SmokerClient",
-    "Smoker (present)-Household Members, Friends, etc.": "SmokerHousehold",
-    "Heart disease": "HeartDisease",
-    "HIV Positive": "HIVpositive",
-    "Hypertension": "Hypertension",
-    "Kidney disease": "KidneyDisease",
-    "Psychiatric history": "PsychiatricHistory",
-    "Seizure disorder": "SeizureDisorder",
-    "Cervical problems": "CervicalProblems",
-    "STD's": "STDs",
-    "Medical History - Other": "OtherHistory",
+    "Therapist Appointments": {
+        "type":"question-array",
+        "inputs": [
+            {
+                "inp1":"DateOfTherapy",
+                "inp2":"KeptLastTherapyAppointment",
+                "inp3":""
+            }
+        ]
+    },
+    "Allergies": {
+        "if":"Allergies",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Diabetes": {
+        "if":"Diabetes",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Smoker (present)-Client": {
+        "if":"SmokerClient",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Smoker (present)-Household Members, Friends, etc.": {
+        "if":"SmokerHousehold",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Heart disease": {
+        "if":"HeartDisease",
+        "then":"Yes",
+        "else":"No"
+    },
+    "HIV Positive": {
+        "if":"HIVpositive",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Hypertension": {
+        "if":"Hypertension",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Kidney disease": {
+        "if":"KidneyDisease",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Psychiatric history": {
+        "if":"PsychiatricHistory",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Seizure disorder": {
+        "if":"SeizureDisorder",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Cervical problems": {
+        "if":"CervicalProblems",
+        "then":"Yes",
+        "else":"No"
+    },
+    "STD's": {
+        "if":"STDs",
+        "then":"Yes",
+        "else":"No"
+    },
+    "Medical History - Other": {
+        "if":"OtherHistory",
+        "then":"Yes",
+        "else":"No"
+    },
     "Specify Other Medical History": "OtherHistorySpecify",
-    "History of Abuse": "HistoryOfAbuse",
+    "History of Abuse": {
+        "if":"HistoryOfAbuse",
+        "then":"Yes",
+        "else":"No"
+    },
     "Specify Abuse": "SpecifyHistoryOfAbuse",
-    "Depression Assessment": "",
-    "Date of Depression Assessment": "DepressionScore1Date,DepressionScore2Date,DepressionScore3Date,DepressionScore4Date,DepressionScore5Date,DepressionScore6Date,DepressionScore7Date,DepressionScore8Date,DepressionScore9Date,DepressionScore10Date",
-    "Depression Assessment Score": "DepressionScore1,DepressionScore2,DepressionScore3,DepressionScore4,DepressionScore5,DepressionScore6,DepressionScore7,DepressionScore8,DepressionScore9,DepressionScore10",
+    "Depression Assessment": {
+        "type":"question-array",
+        "inputs": [
+            {
+                "inp1":"DepressionScore1Date",
+                "inp2":"DepressionScore1"
+            },
+            {
+                "inp1":"DepressionScore2Date",
+                "inp2":"DepressionScore2"
+            },
+            {
+                "inp1":"DepressionScore3Date",
+                "inp2":"DepressionScore3"
+            },
+            {
+                "inp1":"DepressionScore4Date",
+                "inp2":"DepressionScore4"
+            },
+            {
+                "inp1":"DepressionScore5Date",
+                "inp2":"DepressionScore5"
+            },
+            {
+                "inp1":"DepressionScore6Date",
+                "inp2":"DepressionScore6"
+            },
+            {
+                "inp1":"DepressionScore7Date",
+                "inp2":"DepressionScore7"
+            },
+            {
+                "inp1":"DepressionScore8Date",
+                "inp2":"DepressionScore8"
+            },
+            {
+                "inp1":"DepressionScore9Date",
+                "inp2":"DepressionScore9"
+            },
+            {
+                "inp1":"DepressionScore10Date",
+                "inp2":"DepressionScore10"
+            }
+        ]
+    },
     "Score too high": "",
     "Depression Score Alert": "",
     "Reason": "",
