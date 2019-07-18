@@ -12,7 +12,7 @@ const db = new PouchDB(
   "https://koogordo:wK0mI55ghBU9pp@hfatracking.net/couchdb/families"
 );
 const querys = {
-  familyIDList: 'SELECT DISTINCT FamilyID FROM adult ORDER BY FamilyID DESC LIMIT 3'
+  familyIDList: 'SELECT DISTINCT FamilyID FROM adult ORDER BY FamilyID'
 };
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -54,7 +54,8 @@ connection.connect(err => {
                 const family = {
                   _id: null,
                   child: [],
-                  adult: []
+                  adult: [],
+                  idMap: []
                 };
 
                 connection.query(
@@ -70,9 +71,11 @@ connection.connect(err => {
                       );
                       const children = [];
                       const adults = [];
+                      const idMap = [];
                       for (const adult in adultResults) {
                         const template = JSON.parse(JSON.stringify(at));
                         template.client = encodeURI(pouchCollate.toIndexableString([row.FamilyID, 'adult', adult]));
+                        idMap.push({ oldId: adultResults["ClientID"], newId: encodeURI(pouchCollate.toIndexableString([row.FamilyID, 'adult', adult])) })
                         for (const prop in ak) {
                           const index = ftools.indexQuestion(template, prop);
                           const q = ftools.getQuestionByIndex(template, index);
@@ -88,12 +91,14 @@ connection.connect(err => {
                         adults.push({
                           clientFName: titleCase(adultResults[adult].First),
                           clientLName: titleCase(adultResults[adult].Last),
+                          clientID: encodeURI(pouchCollate.toIndexableString([row.FamilyID, 'adult', adult])),
                           form: template
                         });
                       }
                       for (const child in childResults) {
                         const template = JSON.parse(JSON.stringify(ct));
                         template.client = encodeURI(pouchCollate.toIndexableString([row.FamilyID, 'child', child]));
+                        idMap.push({ oldId: childResults["ClientID"], newId: encodeURI(pouchCollate.toIndexableString([row.FamilyID, 'child', child])) })
                         for (const prop in ck) {
                           const index = ftools.indexQuestion(template, prop);
                           const q = ftools.getQuestionByIndex(template, index);
@@ -106,6 +111,7 @@ connection.connect(err => {
                         children.push({
                           clientFName: titleCase(childResults[child].First),
                           clientLName: titleCase(childResults[child].Last),
+                          clientID: encodeURI(pouchCollate.toIndexableString([row.FamilyID, 'child', child])),
                           form: template
                         });
                       }
@@ -113,6 +119,7 @@ connection.connect(err => {
                       family._id = row.FamilyID.toString();
                       family.child = children;
                       family.adult = adults;
+                      family.idMap = idMap;
                       db.put(family)
                         .then(res => {
                           console.log(res);
