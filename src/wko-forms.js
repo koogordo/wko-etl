@@ -1,3 +1,5 @@
+const pouchCollate = require('pouchdb-collate');
+const moment = require('moment');
 const indexFormPartChildren = (formPartChildren, key, index) => {
     for (const childIndex in formPartChildren) {
         let tempIndex = index;
@@ -9,7 +11,12 @@ const indexFormPartChildren = (formPartChildren, key, index) => {
     }
     return null;
 }
-
+exports.makeVisitId = (clientID, visitDate) => {
+    const parsedID = pouchCollate.parseIndexableString(decodeURI(clientID));
+    const indexable = pouchCollate.toIndexableString([parsedID[0], parsedID[1], parsedID[2], visitDate, form.name, moment().unix()])
+    const encoded = encodeURI(indexable);
+    return encoded;
+}
 exports.indexQuestion = (fgValue, key, indexc = []) => {
     const index = JSON.parse(JSON.stringify(indexc));
     if (fgValue.key === key) {
@@ -101,5 +108,118 @@ exports.getQuestionByIndex = (fgValue, indexc) => {
         return null;
     }
 }
+/////////////////////////////////////////////////////////////////////
+exports.compress = (form, compressedForm) => {
+    if (Object.keys(compressedForm).length === 0) {
+        for (const prop in form) {
+            if (prop !== 'tabs') {
+                compressedForm[prop] = form[prop];
+            }
+        }
+        compressedForm.contents = [];
+    }
+    if (form.tabs) {
+        for (const tabControl of form.tabs) {
+            this.compress(tabControl, compressedForm);
+        }
+    } else if (form.sections) {
+        for (const sectionControl of form.sections) {
+            this.compress(sectionControl, compressedForm);
+        }
+    } else if (form.rows && form.type === 'question-array') {
+        // (form as form).addControl('initialLoad', new FormControl(true));
+
+        for (const inputControl of form.controls.input.controls) {
+            for (const rowControl of inputControl.rows) {
+                this.compress(rowControl, compressedForm);
+            }
+        }
+    } else if (form.rows && form.type !== 'question-array') {
+        for (const rowControl of form.rows) {
+            this.compress(rowControl, compressedForm);
+        }
+    } else if (form.columns) {
+        for (const columnControl of form.columns) {
+            // console.log(columnControl);
+            this.compress(columnControl, compressedForm);
+        }
+    } else if (form.options) {
+        for (const optionControl of form.options) {
+            this.compress(optionControl, compressedForm);
+        }
+    } else if (form.questions) {
+        form.questions.forEach((question) => {
+            compressedForm.contents.push({
+                key: question.key,
+                value: question.input,
+                notes: question.notes || [],
+            });
+            if (question.options) {
+                for (const optionControl of question.options) {
+                    if (optionControl.rows.length > 0) {
+                        this.compress(optionControl, compressedForm);
+                    }
+                }
+            } else if (question.rows && question.type === 'question-array') {
+                for (const inputControl of question.input) {
+                    for (const rowControl of inputControl.rows) {
+                        this.compress(rowControl, compressedForm);
+                    }
+                }
+            } else if (question.rows && question.type !== 'question-array') {
+                for (const rowControl of question.rows) {
+                    this.compress(rowControl, compressedForm);
+                }
+            }
+        });
+    }
+    return compressedForm;
+}
+/////////////////////////////////////////////////////////////////////
+exports.mapDirect = (question, map, sqlData) => {
+    console.log("map direct: ", map);
+    if (map.field) {
+        question.input = sqlData[map.field]
+    } else if (map.value) {
+        question.input = map.value
+    }
+}
+exports.mapQuestionArray = (question, map, sqlData) => {
+    const newInputs = [];
+    for (const input of map.inputs) {
+        const newInput = JSON.parse(JSON.stringify(question.rows[0]))
+        console.log(input)
+        for (const key in input) {
+            console.log(key);
+            const index = exports.indexQuestion(newInput, key);
+            const q = exports.getQuestionByIndex(newInput, index);
+            if (input[key].field) {
+                q.input = sqlData[input[key].field]
+                newInput.key = `${key}-${input[key].field}`
+            } else if (input[key].value) {
+                q.input = input[key].value
+            }
+        }
+        console.log(newInput);
+        newInputs.push(newInput);
+    }
+    question.input = newInputs;
+}
+
+exports.mapBiConditional = (question, keyMap, sqlData) => {
+    if (sqlData[keyMap['if']]) {
+        question.input = 'Yes'
+    } else {
+        question.input = 'No'
+    }
+}
+
+// exports.mapTriConditional = (question, keyMap, sqlData) => {
+//     if (sqlData[keyMap['if']]) {
+//         question.input = 'Yes';
+//     } else if (sqlData[keyMap['elif']]) {
+//         question.input = 'No';
+//     }
+// }
 
 
