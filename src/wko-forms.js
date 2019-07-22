@@ -11,7 +11,7 @@ const indexFormPartChildren = (formPartChildren, key, index) => {
     }
     return null;
 }
-exports.makeVisitId = (clientID, visitDate) => {
+exports.makeVisitId = (clientID, visitDate, form) => {
     const parsedID = pouchCollate.parseIndexableString(decodeURI(clientID));
     const indexable = pouchCollate.toIndexableString([parsedID[0], parsedID[1], parsedID[2], visitDate, form.name, moment().unix()])
     const encoded = encodeURI(indexable);
@@ -177,49 +177,150 @@ exports.compress = (form, compressedForm) => {
 }
 /////////////////////////////////////////////////////////////////////
 exports.mapDirect = (question, map, sqlData) => {
-    console.log("map direct: ", map);
-    if (map.field) {
-        question.input = sqlData[map.field]
+    if (map['field']) {
+        question.input = sqlData[map['field']]
     } else if (map.value) {
-        question.input = map.value
+        question.input = map['value']
     }
 }
 exports.mapQuestionArray = (question, map, sqlData) => {
     const newInputs = [];
+    const newInputArray = []
     for (const input of map.inputs) {
-        const newInput = JSON.parse(JSON.stringify(question.rows[0]))
-        console.log(input)
+        const newInput = JSON.parse(JSON.stringify({ rows: question.rows }))
+
         for (const key in input) {
-            console.log(key);
+            const keyType = input[key]['type']
+            const columnName = input[key]['field']
             const index = exports.indexQuestion(newInput, key);
+            //console.log(key, index, input[key]);
             const q = exports.getQuestionByIndex(newInput, index);
+
+            switch (keyType) {
+                case 'direct': exports.mapDirect(q, input[key], sqlData)
+                    break;
+                case 'question-array': exports.mapQuestionArray(q, input[key], sqlData)
+                    break;
+                case 'checkboxes': exports.mapCheckboxes(q, input[key], sqlData)
+                    break;
+                case 'radio': exports.mapRadio(q, input[key], sqlData)
+                    break;
+                case 'input-map': exports.mapInputMap(q, input[key], sqlData)
+                    break;
+                case 'conditional': exports.mapConditional(q, input[key], sqlData)
+                    break;
+            }
             if (input[key].field) {
                 q.input = sqlData[input[key].field]
-                newInput.key = `${key}-${input[key].field}`
+                q.key = `${key}-${input[key].field}`
             } else if (input[key].value) {
                 q.input = input[key].value
+                q.key = `${key}-${input[key].value}`
             }
         }
-        console.log(newInput);
-        newInputs.push(newInput);
+        newInputArray.push(newInput)
     }
-    question.input = newInputs;
+    question.input = newInputArray;
 }
 
-exports.mapBiConditional = (question, keyMap, sqlData) => {
-    if (sqlData[keyMap['if']]) {
-        question.input = 'Yes'
+exports.mapConditional = (question, keyMap, sqlData) => {
+    if (sqlData[keyMap['if']['field']]) {
+        if (keyMap['then']['value']) {
+            question.input = keyMap['then']['value'];
+        } else {
+            question.input = sqlData[keyMap['then']['field']]
+        }
     } else {
-        question.input = 'No'
+        if (keyMap['else']['value']) {
+            question.input = keyMap['else']['value'];
+        } else {
+            question.input = sqlData[keyMap['else']['field']]
+        }
     }
 }
 
-// exports.mapTriConditional = (question, keyMap, sqlData) => {
-//     if (sqlData[keyMap['if']]) {
-//         question.input = 'Yes';
-//     } else if (sqlData[keyMap['elif']]) {
-//         question.input = 'No';
-//     }
-// }
+exports.mapRadio = (question, map, sqlData) => {
+    if (map['field']) {
+        const oldDbVal = sqlData[map['field']];
+        console.log('radio: ', oldDbVal)
+        let value;
+        if (oldDbVal) {
+            value = question.options.filter(opt => {
+                return ((opt.value.toLowerCase().includes(oldDbVal.split('|').join('').toLowerCase())) || (oldDbVal.split('|').join('').toLowerCase().includes(opt.value.toLowerCase())));
+            })[0].value;
+            if (!value) {
+                question.options.push({ key: oldDbVal.split('|').join(''), value: oldDbVal.split('|').join(''), specify: false, labelWidth: 'nogrow', rows: [] })
+                value = oldDbVal.split('|').join('');
+            }
+        } else {
+            value = '';
+        }
+        question.input = value;
+    } else {
+        question.input = map['value']
+    }
+}
 
+exports.mapCheckboxes = (question, map, sqlData) => {
+    const optionsInput = []
+    question.options.forEach(opt => { optionsInput.push(false) })
+    if (map['field']) {
+        const oldDbVal = sqlData[map['field']];
+        if (oldDbVal) {
+            const fieldVals = oldDbVal.split('|')
+            console.log(fieldVals);
+            for (const val of fieldVals) {
+                let matchFound = false;
+                for (let i = 0; i < question.options.length; i++) {
+                    // question.options[i].value.toLowerCase().includes(val.toLowerCase())
+                    if ((val.toLowerCase().includes(question.options[i].value.toLowerCase())) || (question.options[i].value.toLowerCase().includes(val.toLowerCase()))) {
+                        console.log(question.options[0]);
+                        console.log(question.options[i].value)
+                        optionsInput[i] = true;
+                        matchFound = true;
+                    } else {
+                        if (oldDbVal == 1) {
+                            optionsInput[0] = true;
+                            matchFound = true;
+                        }
+                    }
+                }
+                if (!matchFound) {
+                    question.options.push({ key: val, value: val, specify: false, rows: [] })
+                    optionsInput.push(true);
+                }
 
+            }
+
+        } else {
+            optionsInput[0] = false;
+        }
+        question.input = optionsInput;
+    } else {
+        question.input = map['value'];
+    }
+}
+
+exports.mapInputMap = (question, map, sqlData) => {
+    /*   {
+     *      "type":"input-map",
+     *      "function":"timeDuration",
+     *      "args": [{"field":"StartTime"},{"field":"EndTime"}]
+     *   }
+     */
+    switch (map['function']) {
+        case 'timeDuration': question.input = timeDuration(map['args'][0]['field'] ? sqlData[map['args'][0]['field']] : map['args'][0]['value'], map['args'][1]['field'] ? sqlData[map['args'][1]['field']] : map['args'][1]['value'])
+            break;
+    }
+}
+
+// ANCHOR INPUT MAP FUNCTIONS
+const timeDuration = (startTime, endTime) => {
+    const start = moment(startTime, 'HH:mm');
+    const end = moment(endTime, 'HH:mm');
+    var duration = end.diff(start, 'seconds');
+    var totalMins = duration / 60;
+    var durationMins = totalMins % 60;
+    var durationHours = (totalMins - durationMins) / 60;
+    return durationHours + ' hour(s), ' + durationMins + ' minute(s)';
+}

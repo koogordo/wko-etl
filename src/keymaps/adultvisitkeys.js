@@ -1,5 +1,8 @@
 exports.adultVisitKeys = JSON.parse(`{
-    "Previous Visit Date": "",
+    "Previous Visit Date": {
+        "type":"direct",
+        "field":"LastVisitDate"
+    },
     "Initial Visit Date": {
         "type":"direct",
         "field":"InitialVisitDate"
@@ -26,26 +29,64 @@ exports.adultVisitKeys = JSON.parse(`{
         "function":"timeDuration",
         "args": [{"field":"StartTime"},{"field":"EndTime"}]
     },
-    "Client Level": "ClientLevel",
+    "Client Level": {
+        "type":"direct",
+        "field":"ClientLevel"
+    },
     "ClientPoints - CO": "----",
     "ClientPoints - TR": "----",
-    "Client Score": "ClientScore",
-    "Client Type": "ClientType",
+    "Client Score": {
+        "type":"direct",
+        "field":"ClientScore"
+    },
+    "Client Type": {
+        "type":"direct",
+        "field":"ClientType"
+    },
     "Funding Level": "",
     "Sub Funding Level - Other": "****",
-    "Client Referral Source": "ReferredBy",
-    "Previous Client": "PreviousClient",
+    "Client Referral Source": {
+        "type":"direct",
+        "field":"ReferredBy"
+    },
+    "Previous Client": {
+        "type":"conditional",
+        "if": {"field":"PreviousClient"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
     "Children's Division": "",
-    "DOB": "DateOfBirth",
-    "Age": "AgeYears",
-    "Marital Status": "MaritalStatus",
-    "Street Address": "",
-    "Address Line 1": "Address",
-    "Address Line 2": "",
+    "DOB": {
+        "type":"direct",
+        "field":"DateOfBirth"
+    },
+    "Age": {
+        "type":"direct",
+        "field":"AgeYears"
+    },
+    "Marital Status": {
+        "type":"radio",
+        "field":"MaritalStatus"
+    },
+    "Street Address": "----",
+    "Address Line 1": {
+        "type":"direct",
+        "field":"Address"
+    },
+    "Address Line 2": "???",
     "Address Line 3": "----",
-    "City": "City",
-    "State": "State",
-    "Zip Code": "Zip",
+    "City": {
+        "type":"direct",
+        "field":"City"
+    },
+    "State": {
+        "type":"direct",
+        "field":"State"
+    },
+    "Zip Code": {
+        "type":"direct",
+        "field":"Zip"
+    },
     "Phone Numbers": {
         "type":"question-array",
         "inputs": [
@@ -63,8 +104,11 @@ exports.adultVisitKeys = JSON.parse(`{
             }
         ]
     },
-    "County": "County",
-    "Other Specify": "",
+    "County": {
+        "type":"radio",
+        "field": "County"
+    },
+    "Other Specify": "???",
     "Lives Alone": "",
     "Who Else": "",
     "Who Else Input - Other": "",
@@ -76,31 +120,62 @@ exports.adultVisitKeys = JSON.parse(`{
     "Specify Primary Lang.": "",
     "Speaks/Writes English (Other)": "",
     "BMI - QG": "----",
-    "Height": "",
-    "Height (ft)": "",
-    "Height (In)": "",
-    "Weight": "",
-    "Current Weight": "CurrentWeight",
-    "Previous Weight": "",
-    "Weight Change": "",
-    "No Weight Given": "",
-    "New BMI - QG": "",
-    "New BMI": "BMI",
-    "Race": "Race",
-    "MultipleRaces": "",
-    "Other Race (Multi)": "",
-    "Other Race (Single)": "",
+    "Height": "----",
+    "Height (ft)": {
+        "type":"direct",
+        "field":"PregnantHeightFeet"
+    }, 
+    "Height (In)": {
+        "type":"direct",
+        "field":"PregnantHeightIn"
+    },
+    "Weight": "???",
+    "Current Weight": {
+        "type": "direct",
+        "field": "CurrentWeight"
+    },
+    "Previous Weight": "???",
+    "Weight Change": {
+        "type":"direct",
+        "field":"WeightChange"
+    },
+    "No Weight Given": "???",
+    "New BMI - QG": "???",
+    "New BMI": {
+        "type":"direct",
+        "field":"BMI"
+    },
+    "Race": {
+        "type":"radio",
+        "field": "Race"
+    },
+    "MultipleRaces": "???",
+    "Other Race (Multi)": "???",
+    "Other Race (Single)": "???",
     "Employment Status": "EmploymentStatus",
     "Retired": "",
     "Disabled": "",
     "FT Stay-At-Home Parent": "",
-    "Relationship to Child": "RelationshipToChild",
-    "Specify Relationship": "",
-    "Income": "FamilyYearlyIncome",
-    "Previous Income": "",
-    "Household Members": "",
-    "Type of Aid": "",
-    "Type of Aid - Specify": "",
+    "Relationship to Child": {
+        "type":"radio",
+        "field":"RelationshipToChild"
+    },
+    "Specify Relationship": "???",
+    "Income": {
+        "type":"input-map",
+        "function":"income",
+        "args": [{"field":"FamilyYearlyIncome"},{"field":"FamilyYearlyIncome"},{"field":"FamilyYearlyIncome"}]
+    },
+    "Previous Income": "???",
+    "Household Members": {
+        "type":"direct",
+        "field":"HouseMembers"
+    },
+    "Type of Aid": {
+        "type":"checkboxes",
+        "field":"TypeOfAide"
+    },
+    "Type of Aid - Specify": "???",
     "Emergency Contact Name": "----",
     "EC First Name": "EmergencyContactName",
     "EC Last Name": "",
@@ -109,55 +184,62 @@ exports.adultVisitKeys = JSON.parse(`{
         "type":"question-array",
         "inputs": [
             {
-                "inp1":"*Home",
-                "inp2":"EmergencyContactHomePhone"
+                "EC Phone Number Type": {"value":"Home"},
+                "EC Phone Number": {"field":"EmergencyContactHomePhone"}
             }, 
             {
-                "inp1":"*Work",
-                "inp2":"EmergencyContactWorkPhone"
+                "EC Phone Number Type": {"value":"Work"},
+                "EC Phone Number": {"field":"EmergencyContactWorkPhone"}
             }, 
             {
-                "inp1":"*Other",
-                "inp2":"EmergencyContactOtherPhone"
+                "EC Phone Number Type": {"value":"Other"},
+                "EC Phone Number": {"field":"EmergencyContactOtherPhone"}
             }
         ]
     },
-    "Initial Default EC Phone Number Type": "----",
-    "Initial Default EC Phone Number": "----",
     "Parenting Partner": {
         "type":"conditional",
-        "if":"ParentingPartnerName",
-        "then":"Yes",
-        "else":"No"
+        "if": {"field":"ParentingPartnerName"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Parenting Partner Name": "----",
     "PP First Name": "ParentingPartnerName",
-    "PP Last Name": "",
+    "PP Last Name": "???",
     "PP Relationship": "ParentingPartnerRelationship",
-    "PP Employment Status": "",
-    "PP Retired": "",
-    "PP Disabled": "",
-    "PP Schooling Status": "",
-    "PP Current Schooling Level": "",
-    "PP Specify Other Schooling": "",
-    "PP FT Stay-At-Home Parent": "",
+    "PP Employment Status": "???",
+    "PP Retired": "???",
+    "PP Disabled": "???",
+    "PP Schooling Status": "???",
+    "PP Current Schooling Level": "???",
+    "PP Specify Other Schooling": "???",
+    "PP FT Stay-At-Home Parent": "???",
     "Insurance": "Insurance",
     "Medicaid Number": "MedicaidNumber",
     "Status": {
-        "if":"MedicaidPending",
-        "then":"Pending",
+        "type":"conditional",
+        "if": {"field":"MedicaidPending"},
+        "then": {"value":"Pending"},
         "else":""
     },
-    "Other Insurance": "",
-    "Other Insurance Status": "",
-    "Medical Provider Name": "",
+    "Other Insurance": "???",
+    "Other Insurance Status": "???",
+    "Medical Provider Name": "----",
     "Medical Provider First Name": "DoctorsFirstName",
     "Medical Provider Last Name": "DoctorsLastName",
-    "Medical Visits Primary": "",
-    "PMP Appointment Date": "",
-    "Appointment Scheduled": "",
-    "Primary Appointment Kept": "KeptLastAppointmentSpecify",
-    "Reason Primary Appt Unmet": "",
+    "Medical Visits Primary": "???",
+    "PMP Appointment Date": "???",
+    "Appointment Scheduled": "???",
+    "Primary Appointment Kept": {
+        "type":"conditional",
+        "if": {"field":"KeptLastAppointment"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Reason Primary Appt Unmet": {
+        "type":"direct",
+        "field":"KeptLastAppointmentSpecify"
+    },
     "Reason unscheduled": "",
     "Other healthcare provider": "",
     "Other MP": "",
@@ -167,89 +249,226 @@ exports.adultVisitKeys = JSON.parse(`{
         "type":"question-array",
         "inputs": [
             {
-                "inp1":"SpecialistFirstName",
-                "inp2":"SpecialistLastName",
-                "inp3":"SpecialistField",
-                "inp4":"SpecialistNextVisit",
-                "inp5":"KeptLastSpecialistAppointment1"
+                "Specialist FName": {
+                    "field":"SpecialistFirstName",
+                    "type":"direct"
+                },
+                "Specialist LName": {
+                    "type":"direct",
+                    "field":"SpecialistLastName"
+                },
+                "Specialty": {
+                    "type":"direct",
+                    "field":"SpecialistField"
+                },
+                "Specialist Appointments": {
+                    "type":"question-array",
+                    "inputs": [
+                        {
+                            "Specialist App. Date": {
+                                "type":"direct",
+                                "field":"SpecialistNextVisit"
+                            },
+                            "Kept Specialist Appointment": {
+                                "type":"conditional",
+                                "if":{"field":"KeptLastSpecialistAppointment1"},
+                                "then" : {"value":"Yes"},
+                                "else":{"value":"No"}
+                            }
+                        }
+                    ]
+                }
             },
             {
-                "inp1":"SpecialistFirstName2",
-                "inp2":"SpecialistLastName2",
-                "inp3":"SpecialistField2",
-                "inp4":"Specialist2NextVisit",
-                "inp5":"KeptLastSpecialistAppointment2"
+                "Specialist FName": {
+                    "field":"SpecialistFirstName",
+                    "type":"direct"
+                },
+                "Specialist LName": {
+                    "type":"direct",
+                    "field":"SpecialistLastName"
+                },
+                "Specialty": {
+                    "type":"direct",
+                    "field":"SpecialistField2"
+                },
+                "Specialist Appointments": {
+                    "type":"question-array",
+                    "inputs": [
+                        {
+                            "Specialist App. Date": {
+                                "type":"direct",
+                                "field":"Specialist2NextVisit"
+                            },
+                            "Kept Specialist Appointment": {
+                                "type":"radio",
+                                "value":""
+                            }
+                        }
+                    ]
+                }
             },
             {
-                "inp1":"SpecialistFirstName3",
-                "inp2":"SpecialistLastName3",
-                "inp3":"SpecialistField3",
-                "inp4":"Specialist3NextVisit",
-                "inp5":""
+                "Specialist FName": {
+                    "field":"SpecialistFirstName",
+                    "type":"direct"
+                },
+                "Specialist LName": {
+                    "type":"direct",
+                    "field":"SpecialistLastName"
+                },
+                "Specialty": {
+                    "type":"direct",
+                    "field":"SpecialistField3"
+                },
+                "Specialist Appointments": {
+                    "type":"question-array",
+                    "inputs": [
+                        {
+                            "Specialist App. Date": {
+                                "type":"direct",
+                                "field":"Specialist3NextVisit"
+                            },
+                            "Kept Specialist Appointment": {
+                                "type":"radio",
+                                "value":""
+                            }
+                        }
+                    ]
+                }
             },
             {
-                "inp1":"SpecialistFirstName4",
-                "inp2":"SpecialistLastName4",
-                "inp3":"SpecialistField4",
-                "inp4":"Specialist4NextVisit",
-                "inp5":""
+                "Specialist FName": {
+                    "field":"SpecialistFirstName",
+                    "type":"direct"
+                },
+                "Specialist LName": {
+                    "type":"direct",
+                    "field":"SpecialistLastName"
+                },
+                "Specialty": {
+                    "type":"direct",
+                    "field":"SpecialistField4"
+                },
+                "Specialist Appointments": {
+                    "type":"question-array",
+                    "inputs": [
+                        {
+                            "Specialist App. Date": {
+                                "type":"direct",
+                                "field":"Specialist4NextVisit"
+                            },
+                            "Kept Specialist Appointment": {
+                                "type":"radio",
+                                "value":""
+                            }
+                        }
+                    ]
+                }
             },
             {
-                "inp1":"SpecialistFirstName5",
-                "inp2":"SpecialistLastName5",
-                "inp3":"SpecialistField5",
-                "inp4":"Specialist5NextVisit",
-                "inp5":""
+                "Specialist FName": {
+                    "field":"SpecialistFirstName",
+                    "type":"direct"
+                },
+                "Specialist LName": {
+                    "type":"direct",
+                    "field":"SpecialistLastName"
+                },
+                "Specialty": {
+                    "type":"direct",
+                    "field":"SpecialistField5"
+                },
+                "Specialist Appointments": {
+                    "type":"question-array",
+                    "inputs": [
+                        {
+                            "Specialist App. Date": {
+                                "type":"direct",
+                                "field":"Specialist5NextVisit"
+                            },
+                            "Kept Specialist Appointment": {
+                                "type":"radio",
+                                "value":""
+                            }
+                        }
+                    ]
+                }
             }
         ]
     },
-    "Specialist Name": "----",
-    "Specialist Appointments": "",
     "Specify Missed Spec. Appt.": "",
     "Therapist": {
-        "if":"Therapy",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"Therapy"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Therapist's Name": "----",
-    "Therapist First Name": "FirstNameOfTherapist",
-    "Therapist Last Name": "LastNameOfTherapist",
-    "Current Medical Conditions": "",
-    "Specify Medical Conditions": "SpecifyCurrentMedicalConditions",
+    "Therapist First Name": {
+        "type":"direct",
+        "field": "FirstNameOfTherapist"
+    },
+    "Therapist Last Name": {
+        "type":"direct",
+        "field": "LastNameOfTherapist"
+    },
+    "Current Medical Conditions": {
+        "type":"conditional",
+        "if": {"field":"SpecifyCurrentMedicalConditions"},
+        "then": {"field":"Yes"},
+        "else": {"field":"No"}
+    },
+    "Specify Medical Conditions": {
+        "type":"direct",
+        "field":"SpecifyCurrentMedicalConditions"
+    },
     "Therapist Appointments": {
         "type":"question-array",
         "inputs": [
             {
-                "inp1":"DateOfTherapy",
-                "inp2":"KeptLastTherapyAppointment",
-                "inp3":""
+                "Therapy Appointment Date": {
+                    "type":"direct",
+                    "field":"DateOfTherapy"
+                },
+                "Kept Therapy Appointment": {
+                    "type":"conditional",
+                    "if": {"field":"KeptLastTherapyAppointment"},
+                    "then": {"value":"Yes"},
+                    "else": {"value":"No"}
+                }
             }
         ]
     },
     "Allergies": {
-        "if":"Allergies",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"Allergies"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Diabetes": {
-        "if":"Diabetes",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"Diabetes"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Smoker (present)-Client": {
-        "if":"SmokerClient",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"SmokerClient"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Smoker (present)-Household Members, Friends, etc.": {
-        "if":"SmokerHousehold",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"SmokerHousehold"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Heart disease": {
-        "if":"HeartDisease",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"HeartDisease"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "HIV Positive": {
         "if":"HIVpositive",
@@ -257,106 +476,213 @@ exports.adultVisitKeys = JSON.parse(`{
         "else":"No"
     },
     "Hypertension": {
-        "if":"Hypertension",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"Hypertension"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Kidney disease": {
-        "if":"KidneyDisease",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"KidneyDisease"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Psychiatric history": {
-        "if":"PsychiatricHistory",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"PsychiatricHistory"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Seizure disorder": {
-        "if":"SeizureDisorder",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"SeizureDisorder"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Cervical problems": {
-        "if":"CervicalProblems",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"CervicalProblems"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "STD's": {
-        "if":"STDs",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"STDs"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
     "Medical History - Other": {
-        "if":"OtherHistory",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"OtherHistory"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
-    "Specify Other Medical History": "OtherHistorySpecify",
+    "Specify Other Medical History": {
+        "type": "direct",
+        "field": "OtherHistorySpecify"
+    },
     "History of Abuse": {
-        "if":"HistoryOfAbuse",
-        "then":"Yes",
-        "else":"No"
+        "type":"conditional",
+        "if": {"field":"HistoryOfAbuse"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
     },
-    "Specify Abuse": "SpecifyHistoryOfAbuse",
+    "Specify Abuse": {
+        "type":"direct",
+        "field":"SpecifyHistoryOfAbuse"
+    },
     "Depression Assessment": {
         "type":"question-array",
         "inputs": [
             {
-                "inp1":"DepressionScore1Date",
-                "inp2":"DepressionScore1"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore1Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore1"
+                }
             },
             {
-                "inp1":"DepressionScore2Date",
-                "inp2":"DepressionScore2"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore2Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore2"
+                }
             },
             {
-                "inp1":"DepressionScore3Date",
-                "inp2":"DepressionScore3"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore3Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore3"
+                }
             },
             {
-                "inp1":"DepressionScore4Date",
-                "inp2":"DepressionScore4"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore4Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore4"
+                }
             },
             {
-                "inp1":"DepressionScore5Date",
-                "inp2":"DepressionScore5"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore5Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore5"
+                }
             },
             {
-                "inp1":"DepressionScore6Date",
-                "inp2":"DepressionScore6"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore6Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore6"
+                }
             },
             {
-                "inp1":"DepressionScore7Date",
-                "inp2":"DepressionScore7"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore7Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore7"
+                }
             },
             {
-                "inp1":"DepressionScore8Date",
-                "inp2":"DepressionScore8"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore8Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore8"
+                }
             },
             {
-                "inp1":"DepressionScore9Date",
-                "inp2":"DepressionScore9"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore9Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore9"
+                }
             },
             {
-                "inp1":"DepressionScore10Date",
-                "inp2":"DepressionScore10"
+                "Date of Depression Assessment": {
+                    "type":"direct",
+                    "field":"DepressionScore10Date"
+                },
+                "Depression Assessment Score": {
+                    "type":"direct",
+                    "field":"DepressionScore10"
+                }
             }
         ]
     },
-    "Score too high": "",
-    "Depression Score Alert": "",
-    "Reason": "",
-    "Currently Pregnant": "PregnancySectionDoesNotApplytoFamily",
-    "Due Date": "PregnancyDueDate",
-    "Subsequent Pregnancy": "SubsequentProgramPregnancy",
-    "Gestational Age": "GestionalAgeWeeks",
-    "Trimester": "PregnancyTrimester",
-    "Receiving Prenatal Care": "ReceivingPrenatalCare",
-    "Gest. Week Prenatal Care Began": "GestationalWeekPrenatalCareBegan",
+    "Score too high": "???",
+    "Depression Score Alert": "???",
+    "Reason": "???",
+    "Currently Pregnant": {
+        "type":"conditional",
+        "if": {"field":"PregnancySectionDoesNotApplytoFamily"},
+        "then": {"value":"No"},
+        "else": {"value":"Yes"}
+    },
+    "Due Date": {
+        "type":"direct",
+        "field":"PregnancyDueDate"
+    },
+    "Subsequent Pregnancy": {
+        "type":"checkboxes",
+        "field":"SubsequentProgramPregnancy"
+    },
+    "Gestational Age": {
+        "type":"direct",
+        "field":"GestionalAgeWeeks"
+    },
+    "Trimester": {
+        "type":"direct",
+        "field":"PregnancyTrimester"
+    },
+    "Receiving Prenatal Care": {
+        "type":"conditional",
+        "if":{"field":"ReceivingPrenatalCare"},
+        "then":{"value":"Yes"},
+        "else":{"value":"No"}
+    },
+    "Gest. Week Prenatal Care Began": {
+        "type":"direct",
+        "field":"GestationalWeekPrenatalCareBegan"
+    },
     "Previous Prenatal Care Visits": "",
-    "Number Prenatal Care Visits": "NumberOfPrenatalCareVisits",
-    "Adequate Prenatal Care": "CurrentlyReceivingAdequatePrenatalCare",
-    "Satisfied With Prenatal Care": "PrenatalCareSatasfaction",
+    "Number Prenatal Care Visits": {
+        "type":"direct",
+        "field": "NumberOfPrenatalCareVisits"
+    },
+    "Adequate Prenatal Care": "----",
+    "Satisfied With Prenatal Care": {
+        "type":"conditional",
+        "if":{"field":"PrenatalCareSatasfaction"},
+        "then":{"value":"Yes"},
+        "else":{"value":"No"}
+    },
     "Not Satisfied with Prenatal Care Reason": "",
     "Pregnancy Wanted": "PregnancyWanted",
     "Previous Pregnancies": "",
@@ -365,7 +691,10 @@ exports.adultVisitKeys = JSON.parse(`{
     "Number of Living Children": "NumberOfLivingChildren",
     "Last Delivery Date": "DateOfLastDelivery",
     "Had Previous Pregnancy Complications": "PreviousPregnancyComplications",
-    "Induced Miscarriages": "",
+    "Induced Miscarriages": {
+        "type":"direct",
+        "field":"NumberOfInducedPregnancies"
+    },
     "Spontaneous Miscarriages": "NumberOfSpontaneousMiscarriages",
     "Fetal Deaths": "NumberOfFetalDeaths",
     "Neonatal Deaths": "NumberOfNeonatalDeaths",
@@ -374,7 +703,10 @@ exports.adultVisitKeys = JSON.parse(`{
     "Low Birth Weight Babies": "NumberOfLowBirthRateBabies",
     "Multi Gestations": "NumberOfMultiGestations",
     "C-sections": "NumberOfCsections",
-    "Labor/Delivery Complications": "LaborComplications",
+    "Labor/Delivery Complications": {
+        "type":"direct",
+        "field": "LaborComplications"
+    },
     "Health or Medical Concerns - Pregnancy": "PregnancyConcerns",
     "Concern Resolved": "",
     "Avg Weight Change - Previous Pregnancy": "",
@@ -462,8 +794,8 @@ exports.adultVisitKeys = JSON.parse(`{
     "Education History": "",
     "Education Type": "",
     "Pre High School Completion Grade": "",
-    "Where - High School": "HighSchoolWhere",
-    "High School Diploma": "HighSchoolDiplomaGED",
+    "Where - High School": "HighSchoolName",
+    "High School Diploma": "HighSchoolDiploma",
     "Date of Diploma": "DiplomaDateRecieved",
     "Currently Enrolled": "",
     "Highest Grade ": "",
