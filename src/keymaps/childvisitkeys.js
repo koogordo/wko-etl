@@ -381,37 +381,133 @@ exports.childVisitKeys = JSON.parse(`{
             }
         ]
     },
-    "Specialty": "Specialty",
-    "Specialist Appointments": "",
-    "Specialist App. Date": "SpecialistNextVisit,Specialist2NextVisit,Specialist3NextVisit,Specialist4NextVisit,Specialist5NextVisit",
-    "Kept Specialist Appointment": "",
-    "Specify Missed Spec. Appt.": "",
-    "Breastfeeding": "Breastfeeding",
-    "Weeks Breast Feeding": "NumberOfWeeksBreastfeeding",
-    "Low Birth Weight": "LowBirthWeight",
-    "Pre-term Delivery": "PretermDelivery",
-    "Problems at Delivery": "ProblemAtDelivery",
-    "Specify Deliv. Problems": "ProblemAtDeliverySpecify",
-    "History of Abuse": "HistoryOfAbuse",
-    "Specify Abuse": "SpecifyHistoryOfAbuse",
-    "Immunizations Current": "ImmunizationsCurrent",
-    "Verified Immun. Record": "VerifiedImmunizationRecord",
-    "UTD Per Parent Report": "UTDPPR",
-    "Specify": "UTDPPRComment",
-    "Appropriate MP": "UsedAppropriateMDforChildsNeeds",
-    "Same Medical Group": "UsedSameMDforAllHealthIssues",
-    "Comfortable Exchanging Health Info": "FeelsComfortableExchangingHealthInfoWithMD",
-    "Can Access MP": "CanAccessMDandServicesWhenNeeded",
-    "Notifies MP": "NotifiesPrimaryMDofAnyOtherHealthServicesChildIsReceiving",
-    "Medical Home": "MedicalHome",
-    "Attends School": "",
-    "School Name": "School",
-    "School Type": "",
-    "Name Other School Type": "",
-    "Days in School": "",
-    "Identified Behavioral Concerns": "IdentifiedLearningBehavioralConcernsAtSchool",
-    "Specify Behavioral Concerns": "IdentifiedLearningBehavioralConcernsAtSchoolSpecify",
-    "Current Age - ASQ": "asqage",
+    "Breastfeeding": {
+        "type":"conditional",
+        "if": {"field":"Breastfeeding"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Weeks Breast Feeding": {
+        "type":"direct",
+        "field":"NumberOfWeeksBreastfeeding"
+    },
+    "Low Birth Weight": {
+        "type":"conditional",
+        "if": {"field":"LowBirhWeight"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Pre-term Delivery": {
+        "type":"conditional",
+        "if": {"field":"PretermDelivery"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Problems at Delivery": {
+        "type":"conditional",
+        "if": {"field":"ProblemAtDelivery"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Specify Deliv. Problems": {
+        "type":"direct",
+        "field":"ProblemAtDeliverySpecify"
+    },
+    "History of Abuse": {
+        "type":"conditional",
+        "if": {"field":"HistoryOfAbuse"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Specify Abuse": {
+        "type":"direct",
+        "field":"SpecifyHistoryOfAbuse"
+    },
+    "Immunizations Current": {
+        "type":"conditional",
+        "if": {"field":"ImmunizationsCurrent"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Verified Immun. Record": {
+        "type":"conditional",
+        "if": {"field":"VerifiedImmunizationRecord"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "UTD Per Parent Report": {
+        "type":"conditional",
+        "if": {"field":"UTDPPR"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Specify": {
+        "type":"direct",
+        "field":"UTDPPRComment"
+    },
+    "Appropriate MP": {
+        "type":"conditional",
+        "if": {"field":"UsedAppropriateMDforChildsNeeds"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Same Medical Group": {
+        "type":"conditional",
+        "if": {"field":"UsedSameMDforAllHealthIssues"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Comfortable Exchanging Health Info": {
+        "type":"conditional",
+        "if": {"field":"FeelsComfortableExchangingHealthInfoWithMD"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Can Access MP": {
+        "type":"conditional",
+        "if": {"field":"CanAccessMDandServicesWhenNeeded"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Notifies MP": {
+        "type":"conditional",
+        "if": {"field":"NotifiesPrimaryMDofAnyOtherHealthServicesChildIsReceiving"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Medical Home": {
+        "type":"direct",
+        "field":"MedicalHome"
+    },
+    "Attends School": {
+        "type":"conditional",
+        "if": {"field":"School"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "School Name": {
+        "type":"direct",
+        "field":"School"
+    },
+    "School Type": "????",
+    "Name Other School Type": "????",
+    "Days in School": "????",
+    "Identified Behavioral Concerns": {
+        "type":"conditional",
+        "if": {"field":"IdentifiedLearningBehavioralConcernsAtSchool"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Specify Behavioral Concerns": {
+        "type":"conditional",
+        "if": {"field":"IdentifiedLearningBehavioralConcernsAtSchoolSpecify"},
+        "then": {"value":"Yes"},
+        "else": {"value":"No"}
+    },
+    "Current Age - ASQ": {
+        "type":"direct",
+        "field":"asqage"
+    },
     "ASQ Questionnaire": "",
     "ASQ Questionnaire Type": "",
     "ASQ Questionnaire Date": "",
@@ -430,10 +526,10 @@ exports.childVisitKeys = JSON.parse(`{
     "ASQ Personal Social": "",
     "Score (Personal Social)": "",
     "N/E (Personal Social)": "",
-    "Current Age - ASQ-SE": "",
+    "Current Age - ASQ-SE": "SEAge",
     "ASQ-SE Questionnaire": "",
     "ASQ-SE Questionnaire Type": "",
-    "ASQ-SE Score": "",
+    "ASQ-SE Score": "SEVal",
     "ASQ-SE Date": "",
     "Visit Summary": "visitsummary",
     "Reviewed W/ Client": "visitsummaryreviewed"
