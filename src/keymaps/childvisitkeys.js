@@ -135,7 +135,7 @@ exports.childVisitKeys = JSON.parse(`{
     },
     "Status": {
         "type":"radio",
-        "field":"MedicaidPending",
+        "field":"MedicaidPending"
     },
     "Other Insurance": {
         "type":"direct",
@@ -172,9 +172,9 @@ exports.childVisitKeys = JSON.parse(`{
                 },
                 "Diagnosed": {
                     "type":"conditional",
-                    "if":"{"field":"Diagnosed"}",
-                    "then":"{"value":"Yes"}",
-                    "else":"{"value":"No"}"
+                    "if":{"field":"Diagnosed"},
+                    "then":{"value":"Yes"},
+                    "else":{"value":"No"}
                 }
             }
         ]

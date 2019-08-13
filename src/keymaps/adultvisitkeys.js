@@ -227,7 +227,7 @@ exports.adultVisitKeys = JSON.parse(`{
     },
     "Status": {
         "type":"radio",
-        "field":"MedicaidPending",
+        "field":"MedicaidPending"
     },
     "Other Insurance": {
         "type":"direct",
@@ -928,7 +928,7 @@ exports.adultVisitKeys = JSON.parse(`{
     "Prev - 4. Problem Solving Skills - Q5": "",
     "4. Problem Solving Skills - Total": {
         "type":"direct",
-        "field": "employment_skills_4_total""
+        "field": "employment_skills_4_total"
     },
     "Prev - 4. Problem Solving Skills - Total": "",
     "Employment Skills - Workplace Preperation Skills": "EmploymentSkills5",
@@ -939,8 +939,8 @@ exports.adultVisitKeys = JSON.parse(`{
     "Prev - 5. Workplace Preparation Skills - Q1": "",
     "5. Workplace Preparation Skills - Q2": {
         "type":"radio",
-        "field":"employment_skills_4_2"
-    }"employment_skills_5_2",
+        "field":"employment_skills_5_2"
+    },
     "Prev - 5. Workplace Preparation Skills - Q2": "",
     "5. Workplace Preparation Skills - Q3": {
         "type":"radio",
@@ -976,7 +976,7 @@ exports.adultVisitKeys = JSON.parse(`{
             {
                 "Education Type": {
                     "type": "direct",
-                    "value": Pre High School
+                    "value": "Pre High School"
                 }
             },
             {
@@ -1018,9 +1018,9 @@ exports.adultVisitKeys = JSON.parse(`{
     },
     "High School Diploma": {
         "type":"conditional",
-        "if":"{"field":"HighSchoolDiploma"}",
-        "then":"{"value":"Yes"}",
-        "else":"{"value":"No"}"
+        "if":{"field":"HighSchoolDiploma"},
+        "then":{"value":"Yes"},
+        "else":{"value":"No"}
     },
     "Date of Diploma": {
         "type":"direct",
@@ -1030,9 +1030,9 @@ exports.adultVisitKeys = JSON.parse(`{
     "Highest Grade ": "????",
     "Attending GED Classes": {
         "type":"conditional",
-        "if":"{"field":"AttendingGEDClasses"}",
-        "then":"{"value":"Yes"}",
-        "else":"{"value":"No"}"
+        "if":{"field":"AttendingGEDClasses"},
+        "then":{"value":"Yes"},
+        "else":{"value":"No"}
     },
     "GED Classes Start": {
         "type":"direct",
@@ -1061,9 +1061,9 @@ exports.adultVisitKeys = JSON.parse(`{
     },
     "Completed": {
         "type":"conditional",
-        "if":"{"field":"VocationalCompletionDate"}",
-        "then":"{"value":"Yes"}",
-        "else":"{"value":"No"}"
+        "if":{"field":"VocationalCompletionDate"},
+        "then":{"value":"Yes"},
+        "else":{"value":"No"}
     },
     "Date of Completion": {
         "type":"direct",
