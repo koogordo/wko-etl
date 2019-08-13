@@ -43,8 +43,8 @@ exports.adultVisitKeys = JSON.parse(`{
         "type":"direct",
         "field":"ClientType"
     },
-    "Funding Level": "",
-    "Sub Funding Level - Other": "****",
+    "Funding Level": "????",
+    "Sub Funding Level - Other": "????",
     "Client Referral Source": {
         "type":"direct",
         "field":"ReferredBy"
@@ -73,7 +73,7 @@ exports.adultVisitKeys = JSON.parse(`{
         "type":"direct",
         "field":"Address"
     },
-    "Address Line 2": "???",
+    "Address Line 2": "????",
     "Address Line 3": "----",
     "City": {
         "type":"direct",
@@ -108,17 +108,20 @@ exports.adultVisitKeys = JSON.parse(`{
         "type":"radio",
         "field": "County"
     },
-    "Other Specify": "???",
+    "Other Specify": "????",
     "Lives Alone": "",
     "Who Else": "",
     "Who Else Input - Other": "",
-    "Gender Identity": "Gender",
+    "Gender Identity": {
+        "type":"direct",
+        "field":"Gender"
+    },
     "Other ": "",
-    "Preferred Pronoun": "",
-    "Primary Language": "",
-    "Speaks/Writes English (Spanish)": "",
-    "Specify Primary Lang.": "",
-    "Speaks/Writes English (Other)": "",
+    "Preferred Pronoun": "????",
+    "Primary Language": "????",
+    "Speaks/Writes English (Spanish)": "????",
+    "Specify Primary Lang.": "????",
+    "Speaks/Writes English (Other)": "????",
     "BMI - QG": "----",
     "Height": "----",
     "Height (ft)": {
@@ -129,18 +132,18 @@ exports.adultVisitKeys = JSON.parse(`{
         "type":"direct",
         "field":"PregnantHeightIn"
     },
-    "Weight": "???",
+    "Weight": "????",
     "Current Weight": {
         "type": "direct",
         "field": "CurrentWeight"
     },
-    "Previous Weight": "???",
+    "Previous Weight": "????",
     "Weight Change": {
         "type":"direct",
         "field":"WeightChange"
     },
-    "No Weight Given": "???",
-    "New BMI - QG": "???",
+    "No Weight Given": "????",
+    "New BMI - QG": "????",
     "New BMI": {
         "type":"direct",
         "field":"BMI"
@@ -149,24 +152,27 @@ exports.adultVisitKeys = JSON.parse(`{
         "type":"radio",
         "field": "Race"
     },
-    "MultipleRaces": "???",
-    "Other Race (Multi)": "???",
-    "Other Race (Single)": "???",
-    "Employment Status": "EmploymentStatus",
-    "Retired": "",
-    "Disabled": "",
-    "FT Stay-At-Home Parent": "",
+    "MultipleRaces": "????",
+    "Other Race (Multi)": "????",
+    "Other Race (Single)": "????",
+    "Employment Status": {
+        "type":"radio",
+        "field": "EmploymentStatus"
+    },
+    "Retired": "????",
+    "Disabled": "????",
+    "FT Stay-At-Home Parent": "????",
     "Relationship to Child": {
         "type":"radio",
         "field":"RelationshipToChild"
     },
-    "Specify Relationship": "???",
+    "Specify Relationship": "????",
     "Income": {
         "type":"input-map",
         "function":"income",
         "args": [{"field":"FamilyYearlyIncome"},{"field":"FamilyYearlyIncome"},{"field":"FamilyYearlyIncome"}]
     },
-    "Previous Income": "???",
+    "Previous Income": "????",
     "Household Members": {
         "type":"direct",
         "field":"HouseMembers"
@@ -175,7 +181,7 @@ exports.adultVisitKeys = JSON.parse(`{
         "type":"checkboxes",
         "field":"TypeOfAide"
     },
-    "Type of Aid - Specify": "???",
+    "Type of Aid - Specify": "????",
     "Emergency Contact Name": "----",
     "EC First Name": "EmergencyContactName",
     "EC Last Name": "",
@@ -205,31 +211,41 @@ exports.adultVisitKeys = JSON.parse(`{
     },
     "Parenting Partner Name": "----",
     "PP First Name": "ParentingPartnerName",
-    "PP Last Name": "???",
+    "PP Last Name": "????",
     "PP Relationship": "ParentingPartnerRelationship",
-    "PP Employment Status": "???",
-    "PP Retired": "???",
-    "PP Disabled": "???",
-    "PP Schooling Status": "???",
-    "PP Current Schooling Level": "???",
-    "PP Specify Other Schooling": "???",
-    "PP FT Stay-At-Home Parent": "???",
-    "Insurance": "Insurance",
-    "Medicaid Number": "MedicaidNumber",
-    "Status": {
-        "type":"conditional",
-        "if": {"field":"MedicaidPending"},
-        "then": {"value":"Pending"},
-        "else":""
+    "PP Employment Status": "????",
+    "PP Retired": "????",
+    "PP Disabled": "????",
+    "PP Schooling Status": "????",
+    "PP Current Schooling Level": "????",
+    "PP Specify Other Schooling": "????",
+    "PP FT Stay-At-Home Parent": "????",
+    "Insurance": "----",
+    "Medicaid Number": {
+        "type":"direct",
+        "field": "MedicaidNumber"
     },
-    "Other Insurance": "???",
-    "Other Insurance Status": "???",
+    "Status": {
+        "type":"radio",
+        "field":"MedicaidPending",
+    },
+    "Other Insurance": {
+        "type":"direct",
+        "field": "Insurance"
+    },
+    "Other Insurance Status": "????",
     "Medical Provider Name": "----",
-    "Medical Provider First Name": "DoctorsFirstName",
-    "Medical Provider Last Name": "DoctorsLastName",
-    "Medical Visits Primary": "???",
-    "PMP Appointment Date": "???",
-    "Appointment Scheduled": "???",
+    "Medical Provider First Name": {
+        "type":"direct",
+        "field": "DoctorsFirstName"
+    },
+    "Medical Provider Last Name": {
+        "type":"direct",
+        "field": "DoctorsLastName"
+    },
+    "Medical Visits Primary": "????",
+    "PMP Appointment Date": "????",
+    "Appointment Scheduled": "????",
     "Primary Appointment Kept": {
         "type":"conditional",
         "if": {"field":"KeptLastAppointment"},
@@ -281,12 +297,12 @@ exports.adultVisitKeys = JSON.parse(`{
             },
             {
                 "Specialist FName": {
-                    "field":"SpecialistFirstName",
+                    "value":"",
                     "type":"direct"
                 },
                 "Specialist LName": {
                     "type":"direct",
-                    "field":"SpecialistLastName"
+                    "field":"SpecialistLastName2"
                 },
                 "Specialty": {
                     "type":"direct",
@@ -310,12 +326,12 @@ exports.adultVisitKeys = JSON.parse(`{
             },
             {
                 "Specialist FName": {
-                    "field":"SpecialistFirstName",
+                    "value":"",
                     "type":"direct"
                 },
                 "Specialist LName": {
                     "type":"direct",
-                    "field":"SpecialistLastName"
+                    "field":"SpecialistLastName3"
                 },
                 "Specialty": {
                     "type":"direct",
@@ -339,12 +355,12 @@ exports.adultVisitKeys = JSON.parse(`{
             },
             {
                 "Specialist FName": {
-                    "field":"SpecialistFirstName",
+                    "value":"",
                     "type":"direct"
                 },
                 "Specialist LName": {
                     "type":"direct",
-                    "field":"SpecialistLastName"
+                    "field":"SpecialistLastName4"
                 },
                 "Specialty": {
                     "type":"direct",
@@ -368,12 +384,12 @@ exports.adultVisitKeys = JSON.parse(`{
             },
             {
                 "Specialist FName": {
-                    "field":"SpecialistFirstName",
+                    "value":"",
                     "type":"direct"
                 },
                 "Specialist LName": {
                     "type":"direct",
-                    "field":"SpecialistLastName"
+                    "field":"SpecialistLastName5"
                 },
                 "Specialty": {
                     "type":"direct",
@@ -397,7 +413,7 @@ exports.adultVisitKeys = JSON.parse(`{
             }
         ]
     },
-    "Specify Missed Spec. Appt.": "",
+    "Specify Missed Spec. Appt.": "????",
     "Therapist": {
         "type":"conditional",
         "if": {"field":"Therapy"},
@@ -636,9 +652,9 @@ exports.adultVisitKeys = JSON.parse(`{
             }
         ]
     },
-    "Score too high": "???",
-    "Depression Score Alert": "???",
-    "Reason": "???",
+    "Score too high": "????",
+    "Depression Score Alert": "????",
+    "Reason": "????",
     "Currently Pregnant": {
         "type":"conditional",
         "if": {"field":"PregnancySectionDoesNotApplytoFamily"},
@@ -684,133 +700,383 @@ exports.adultVisitKeys = JSON.parse(`{
         "else":{"value":"No"}
     },
     "Not Satisfied with Prenatal Care Reason": "",
-    "Pregnancy Wanted": "PregnancyWanted",
-    "Previous Pregnancies": "",
-    "Number of Pregnancies": "NumberOfPregnancies",
-    "Number of Live Births": "NumberOfLiveBirths",
-    "Number of Living Children": "NumberOfLivingChildren",
-    "Last Delivery Date": "DateOfLastDelivery",
-    "Had Previous Pregnancy Complications": "PreviousPregnancyComplications",
+    "Pregnancy Wanted": {
+        "type":"conditional",
+        "if":{"field":"PregnancyWanted"},
+        "then":{"value":"Yes"},
+        "else":{"value":"No"}
+    },
+    "Previous Pregnancies": "????",
+    "Number of Pregnancies": {
+        "type":"direct",
+        "field":"NumberOfPregnancies"
+    },
+    "Number of Live Births": {
+        "type":"direct",
+        "field":"NumberOfLiveBirths"
+    },
+    "Number of Living Children": {
+        "type":"direct",
+        "field":"NumberOfLivingChildren"
+    },
+    "Last Delivery Date": {
+        "type":"direct",
+        "field":"DateOfLastDelivery"
+    },
+    "Had Previous Pregnancy Complications": {
+        "type":"conditional",
+        "if":{"field":"PreviousPregnancyComplications"},
+        "then":{"value":"Yes"},
+        "else":{"value":"No"}
+    },
     "Induced Miscarriages": {
         "type":"direct",
         "field":"NumberOfInducedPregnancies"
     },
-    "Spontaneous Miscarriages": "NumberOfSpontaneousMiscarriages",
-    "Fetal Deaths": "NumberOfFetalDeaths",
-    "Neonatal Deaths": "NumberOfNeonatalDeaths",
-    "Pre-term labors": "NumberOfIncididentsOfPretermLabor",
-    "Pre-term Deliveries": "NumberOfPretermDeliveries",
-    "Low Birth Weight Babies": "NumberOfLowBirthRateBabies",
-    "Multi Gestations": "NumberOfMultiGestations",
-    "C-sections": "NumberOfCsections",
+    "Spontaneous Miscarriages": {
+        "type":"direct",
+        "field":"NumberOfSpontaneousMiscarriages"
+    },
+    "Fetal Deaths": {
+        "type":"direct",
+        "field":"NumberOfFetalDeaths"
+    },
+    "Neonatal Deaths": {
+        "type":"direct",
+        "field":"NumberOfNeonatalDeaths"
+    },
+    "Pre-term labors": {
+        "type":"direct",
+        "field":"NumberOfIncididentsOfPretermLabor"
+    },
+    "Pre-term Deliveries": {
+        "type":"direct",
+        "field":"NumberOfPretermDeliveries"
+    },
+    "Low Birth Weight Babies": {
+        "type":"direct",
+        "field":"NumberOfLowBirthRateBabies"
+    },
+    "Multi Gestations": {
+        "type":"direct",
+        "field":"NumberOfMultiGestations"
+    },
+    "C-sections": {
+        "type":"direct",
+        "field":"NumberOfCsections"
+    },
     "Labor/Delivery Complications": {
         "type":"direct",
         "field": "LaborComplications"
     },
-    "Health or Medical Concerns - Pregnancy": "PregnancyConcerns",
-    "Concern Resolved": "",
-    "Avg Weight Change - Previous Pregnancy": "",
-    "Weight Change - Pregnancy (lbs)": "WeightGainedDuringPregnancy",
-    "Reason for Weight Change": "",
-    "Reason Explanation": "",
-    "Participates in the Community": "ParticipationInCommunity",
-    "Participates in the Community - Where": "ParticipationInCommunityWhere",
-    "Community Club Detail": "",
-    "Church Group Detail": "",
-    "Volunteer Detail": "",
-    "Volunteer Hours": "VolunteerHoursSinceLast",
-    "Previous Total Hours": "TotalVolunteerHours - VolunteerHoursSinceLast",
-    "New Total Hours": "TotalVolunteerHours",
+    "Health or Medical Concerns - Pregnancy": {
+        "type":"direct",
+        "field": "PregnancyConcerns"
+    },
+    "Concern Resolved": "?????",
+    "Avg Weight Change - Previous Pregnancy": "?????",
+    "Weight Change - Pregnancy (lbs)": {
+        "type":"direct",
+        "field": "WeightGainedDuringPregnancy"
+    },
+    "Reason for Weight Change": "????",
+    "Reason Explanation": "????",
+    "Participates in the Community": {
+        "type":"conditional",
+        "if":{"field":"ParticipationInCommunity"},
+        "then":{"value":"Yes"},
+        "else":{"value":"No"}
+    },
+    "Participates in the Community - Where": {
+        "type":"checkboxes",
+        "field":"ParticipationInCommunityWhere"
+    },
+    "Community Club Detail": "????",
+    "Church Group Detail": "????",
+    "Volunteer Detail": "????",
+    "Volunteer Hours": {
+        "type":"direct",
+        "field": "VolunteerHoursSinceLast"
+    },
+    "Previous Total Hours": {
+        "type":"direct",
+        "field": "TotalVolunteerHours"
+    },
+    "New Total Hours": {
+        "type":"input-map",
+        "function":"addHours",
+        "args": [{"field":"TotalVolunteerHours"},{"field":"VolunteerHoursSinceLast"}]
+    },
     "Employment Skills - Attitude": "EmploymentSkills1",
-    "1. Attitude - Q1": "employment_skills_1_1",
-    "Prev - 1. Attitude - Q1": "",
-    "1. Attitude - Q2": "employment_skills_1_2",
-    "Prev - 1. Attitude - Q2": "",
-    "1. Attitude - Q3": "employment_skills_1_3",
-    "Prev - 1. Attitude - Q3": "",
-    "1. Attitude - Q4": "employment_skills_1_4",
-    "Prev - 1. Attitude - Q4": "",
-    "1. Attitude - Q5": "employment_skills_1_5",
-    "Prev - 1. Attitude - Q5": "",
-    "1. Attitude - Total": "employment_skills_1_total",
-    "Prev - 1. Attitude - Total": "",
+    "1. Attitude - Q1": {
+        "type":"radio",
+        "field":"employment_skills_1_1"
+    },
+    "Prev - 1. Attitude - Q1": "????",
+    "1. Attitude - Q2": {
+        "type":"radio",
+        "field":"employment_skills_1_2"
+    },
+    "Prev - 1. Attitude - Q2": "????",
+    "1. Attitude - Q3": {
+        "type":"radio",
+        "field":"employment_skills_1_3"
+    },
+    "Prev - 1. Attitude - Q3": "????",
+    "1. Attitude - Q4": {
+        "type":"radio",
+        "field":"employment_skills_1_4"
+    },
+    "Prev - 1. Attitude - Q4": "????",
+    "1. Attitude - Q5": {
+        "type":"radio",
+        "field":"employment_skills_1_5"
+    },
+    "Prev - 1. Attitude - Q5": "????",
+    "1. Attitude - Total": {
+        "type":"direct",
+        "field": "employment_skills_1_total"
+    },
+    "Prev - 1. Attitude - Total": "????",
     "Employment Skills - Responsibility": "EmploymentSkills2",
-    "2. Responsibility - Q1": "employment_skills_2_1",
+    "2. Responsibility - Q1": {
+        "type":"radio",
+        "field":"employment_skills_2_1"
+    },
     "Prev - 2. Responsibility - Q1": "",
-    "2. Responsibility - Q2": "employment_skills_2_2",
+    "2. Responsibility - Q2": {
+        "type":"radio",
+        "field":"employment_skills_2_2"
+    },
     "Prev - 2. Responsibility - Q2": "",
-    "2. Responsibility - Q3": "employment_skills_2_3",
+    "2. Responsibility - Q3": {
+        "type":"radio",
+        "field":"employment_skills_2_3"
+    },
     "Prev - 2. Responsibility - Q3": "",
-    "2. Responsibility - Q4": "employment_skills_2_4",
+    "2. Responsibility - Q4": {
+        "type":"radio",
+        "field":"employment_skills_2_4"
+    },
     "Prev - 2. Responsibility - Q4": "",
-    "2. Responsibility - Q5": "employment_skills_2_5",
+    "2. Responsibility - Q5": {
+        "type":"radio",
+        "field":"employment_skills_2_5"
+    },
     "Prev - 2. Responsibility - Q5": "",
-    "2. Responsibility - Total": "employment_skills_2_total",
+    "2. Responsibility - Total": {
+        "type":"direct",
+        "field": "employment_skills_2_total"
+    },
     "Prev - 2. Responsibility - Total": "",
     "Employment Skills - Communication": "EmploymentSkills3",
-    "3. Communication - Q1": "employment_skills_3_1",
+    "3. Communication - Q1": {
+        "type":"radio",
+        "field":"employment_skills_3_1"
+    },
     "Prev - 3. Communication - Q1": "",
-    "3. Communication - Q2": "employment_skills_3_2",
+    "3. Communication - Q2": {
+        "type":"radio",
+        "field":"employment_skills_3_2"
+    },
     "Prev - 3. Communication - Q2": "",
-    "3. Communication - Q3": "employment_skills_3_3",
+    "3. Communication - Q3": {
+        "type":"radio",
+        "field":"employment_skills_3_3"
+    },
     "Prev - 3. Communication - Q3": "",
-    "3. Communication - Q4": "employment_skills_3_4",
+    "3. Communication - Q4": {
+        "type":"radio",
+        "field":"employment_skills_3_4"
+    },
     "Prev - 3. Communication - Q4": "",
-    "3. Communication - Q5": "employment_skills_3_5",
+    "3. Communication - Q5": {
+        "type":"radio",
+        "field":"employment_skills_3_5"
+    },
     "Prev - 3. Communication - Q5": "",
-    "3. Communication - Total": "employment_skills_3_total",
-    "Prev - 3. Communication - Total": "",
+    "3. Communication - Total": {
+        "type":"direct",
+        "field": "employment_skills_3_total"
+    },
+    "Prev - 3. Communication - Total": "????",
     "Employment Skills - Problem Solving Skills": "EmploymentSkills4",
-    "4. Problem Solving Skills - Q1": "employment_skills_4_1",
+    "4. Problem Solving Skills - Q1": {
+        "type":"radio",
+        "field":"employment_skills_4_1"
+    },
     "Prev - 4. Problem Solving Skills - Q1": "",
-    "4. Problem Solving Skills - Q2": "employment_skills_4_2",
+    "4. Problem Solving Skills - Q2": {
+        "type":"radio",
+        "field":"employment_skills_4_2"
+    },
     "Prev - 4. Problem Solving Skills - Q2": "",
-    "4. Problem Solving Skills - Q3": "employment_skills_4_3",
+    "4. Problem Solving Skills - Q3": {
+        "type":"radio",
+        "field":"employment_skills_4_3"
+    },
     "Prev - 4. Problem Solving Skills - Q3": "",
-    "4. Problem Solving Skills - Q4": "employment_skills_4_4",
+    "4. Problem Solving Skills - Q4": {
+        "type":"radio",
+        "field":"employment_skills_4_4"
+    },
     "Prev - 4. Problem Solving Skills - Q4": "",
-    "4. Problem Solving Skills - Q5": "employment_skills_4_5",
+    "4. Problem Solving Skills - Q5": {
+        "type":"radio",
+        "field":"employment_skills_4_5"
+    },
     "Prev - 4. Problem Solving Skills - Q5": "",
-    "4. Problem Solving Skills - Total": "employment_skills_4_total",
+    "4. Problem Solving Skills - Total": {
+        "type":"direct",
+        "field": "employment_skills_4_total""
+    },
     "Prev - 4. Problem Solving Skills - Total": "",
     "Employment Skills - Workplace Preperation Skills": "EmploymentSkills5",
-    "5. Workplace Preparation Skills - Q1": "employment_skills_5_1",
+    "5. Workplace Preparation Skills - Q1": {
+        "type":"radio",
+        "field":"employment_skills_5_1"
+    },
     "Prev - 5. Workplace Preparation Skills - Q1": "",
-    "5. Workplace Preparation Skills - Q2": "employment_skills_5_2",
+    "5. Workplace Preparation Skills - Q2": {
+        "type":"radio",
+        "field":"employment_skills_4_2"
+    }"employment_skills_5_2",
     "Prev - 5. Workplace Preparation Skills - Q2": "",
-    "5. Workplace Preparation Skills - Q3": "employment_skills_5_3",
+    "5. Workplace Preparation Skills - Q3": {
+        "type":"radio",
+        "field":"employment_skills_5_3"
+    },
     "Prev - 5. Workplace Preparation Skills - Q3": "",
-    "5. Workplace Preparation Skills - Q4": "employment_skills_5_4",
+    "5. Workplace Preparation Skills - Q4": {
+        "type":"radio",
+        "field":"employment_skills_5_4"
+    },
     "Prev - 5. Workplace Preparation Skills - Q4": "",
-    "5. Workplace Preparation Skills - Q5": "employment_skills_5_5",
+    "5. Workplace Preparation Skills - Q5": {
+        "type":"radio",
+        "field":"employment_skills_5_5"
+    },
     "Prev - 5. Workplace Preparation Skills - Q5": "",
-    "5. Workplace Preparation Skills - Total": "employment_skills_5_total",
+    "5. Workplace Preparation Skills - Total": {
+        "type":"direct",
+        "field": "employment_skills_5_total"
+    },
     "Prev - 5. Workplace Preparation Skills - Total": "",
-    "Employment Skills Total": "employment_skills_total_total",
+    "Employment Skills Total": {
+        "type":"direct",
+        "field": "employment_skills_total_total"
+    },
     "Prev - Employment Skills Total": "",
     "Schooling Status": "",
     "Current Schooling Level": "SchoolGrade",
     "Specify Other Schooling": "",
-    "Education History": "",
-    "Education Type": "",
-    "Pre High School Completion Grade": "",
-    "Where - High School": "HighSchoolName",
-    "High School Diploma": "HighSchoolDiploma",
-    "Date of Diploma": "DiplomaDateRecieved",
-    "Currently Enrolled": "",
-    "Highest Grade ": "",
-    "Attending GED Classes": "AttendingGEDClasses",
-    "GED Classes Start": "GEDClassesDateStarted",
-    "GED Classes Complete": "GEDDateCompleted",
-    "College Completed": "",
-    "Vocational School Name": "VocationalSchoolName",
-    "Vocational School City": "VocationalSchoolCity",
-    "Vocational School State": "VocationalSchoolState",
-    "Field of Study": "VocationalFieldOfStudy",
-    "Completed": "",
-    "Date of Completion": "VocationalCompletionDate",
-    "Expected Completion Date": "ExpectedDateOfVocationalCompletion",
-    "Specify Cert/Liscense": "OtherCertsLicenses,OtherLicensesHeld",
+    "Education History": {
+        "type":"question-array",
+        "inputs": [
+            {
+                "Education Type": {
+                    "type": "direct",
+                    "value": Pre High School
+                }
+            },
+            {
+                "Education Type": {
+                    "type":"direct",
+                    "value":"High School"
+                }
+            },
+            {
+                "Education Type": {
+                    "type":"direct",
+                    "value":"GED/GED Classes"
+                }
+            },
+            {
+                "Education Type": {
+                    "type":"direct",
+                    "value":"College"
+                }
+            },
+            {
+                "Education Type": {
+                    "type":"direct",
+                    "value":"Vocational School"
+                }
+            },
+            {
+                "Education Type": {
+                    "type":"direct",
+                    "value":"Other Certificate/License"
+                }
+            }
+        ]
+    },
+    "Pre High School Completion Grade": "?????",
+    "Where - High School": {
+        "type":"direct",
+        "field":"HighSchoolName"
+    },
+    "High School Diploma": {
+        "type":"conditional",
+        "if":"{"field":"HighSchoolDiploma"}",
+        "then":"{"value":"Yes"}",
+        "else":"{"value":"No"}"
+    },
+    "Date of Diploma": {
+        "type":"direct",
+        "field":"DiplomaDateRecieved"
+    },
+    "Currently Enrolled": "????",
+    "Highest Grade ": "????",
+    "Attending GED Classes": {
+        "type":"conditional",
+        "if":"{"field":"AttendingGEDClasses"}",
+        "then":"{"value":"Yes"}",
+        "else":"{"value":"No"}"
+    },
+    "GED Classes Start": {
+        "type":"direct",
+        "field":"GEDClassesDateStarted"
+    },
+    "GED Classes Complete": {
+        "type":"direct",
+        "field":"GEDDateCompleted"
+    },
+    "College Completed": "????",
+    "Vocational School Name": {
+        "type":"direct",
+        "field":"VocationalSchoolName"
+    },
+    "Vocational School City": {
+        "type":"direct",
+        "field":"VocationalSchoolCity"
+    },
+    "Vocational School State": {
+        "type":"direct",
+        "field":"VocationalSchoolState"
+    },
+    "Field of Study": {
+        "type":"direct",
+        "field":"VocationalFieldOfStudy"
+    },
+    "Completed": {
+        "type":"conditional",
+        "if":"{"field":"VocationalCompletionDate"}",
+        "then":"{"value":"Yes"}",
+        "else":"{"value":"No"}"
+    },
+    "Date of Completion": {
+        "type":"direct",
+        "field":"VocationalCompletionDate"
+    },
+    "Expected Completion Date": {
+        "type":"direct",
+        "field":"ExpectedDateOfVocationalCompletion"
+    },
+    "Specify Cert/Liscense": {
+        "type":"direct",
+        "field":"OtherLicensesHeld"
+    },
     "Referral": "",
     "Date of Referral": "",
     "Referral Category": "",

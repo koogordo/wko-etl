@@ -242,12 +242,12 @@ exports.mapConditional = (question, keyMap, sqlData) => {
 exports.mapRadio = (question, map, sqlData) => {
     if (map['field']) {
         const oldDbVal = sqlData[map['field']];
-        console.log('radio: ', oldDbVal)
         let value;
         if (oldDbVal) {
             value = question.options.filter(opt => {
                 return ((opt.value.toLowerCase().includes(oldDbVal.split('|').join('').toLowerCase())) || (oldDbVal.split('|').join('').toLowerCase().includes(opt.value.toLowerCase())));
-            })[0].value;
+            });
+            if (value.length > 0) value = value[0].value
             if (!value) {
                 question.options.push({ key: oldDbVal.split('|').join(''), value: oldDbVal.split('|').join(''), specify: false, labelWidth: 'nogrow', rows: [] })
                 value = oldDbVal.split('|').join('');
@@ -267,17 +267,18 @@ exports.mapCheckboxes = (question, map, sqlData) => {
     if (map['field']) {
         const oldDbVal = sqlData[map['field']];
         if (oldDbVal) {
-            const fieldVals = oldDbVal.split('|')
-            console.log(fieldVals);
+            const fieldVals = isNaN(oldDbVal) ? oldDbVal.split('|') : [oldDbVal];
+            console.log(isNaN(oldDbVal), oldDbVal, question.key);
             for (const val of fieldVals) {
                 let matchFound = false;
                 for (let i = 0; i < question.options.length; i++) {
                     // question.options[i].value.toLowerCase().includes(val.toLowerCase())
-                    if ((val.toLowerCase().includes(question.options[i].value.toLowerCase())) || (question.options[i].value.toLowerCase().includes(val.toLowerCase()))) {
-                        console.log(question.options[0]);
-                        console.log(question.options[i].value)
-                        optionsInput[i] = true;
-                        matchFound = true;
+                    if (isNaN(val)) {
+                        if ((val.toLowerCase().includes(question.options[i].value.toLowerCase())) || (question.options[i].value.toLowerCase().includes(val.toLowerCase()))) {
+                            //console.log(question.options[i].value)
+                            optionsInput[i] = true;
+                            matchFound = true;
+                        }
                     } else {
                         if (oldDbVal == 1) {
                             optionsInput[0] = true;
@@ -301,6 +302,26 @@ exports.mapCheckboxes = (question, map, sqlData) => {
     }
 }
 
+// exports.mapDropdown = (question, map, sqlData) => {
+//     for (const opt in question.options) {
+//         if 
+//     }
+// }
+exports.mapSpecialCase = (question, map, sqlData) => {
+    switch (map['case']) {
+        case 'Lives With':
+            if (sqlData[map['field']] === 7 || sqlData[map['field']] === "7") {
+                question.input = "7"
+            }
+            break;
+        case 'Lives With Else':
+            if (sqlData[map['field']] && (sqlData[map['field']] !== 7 || sqlData[map['field']] !== "7")) {
+                question.input = sqlData[map['field']]
+            }
+            break;
+        default: break;
+    }
+}
 exports.mapInputMap = (question, map, sqlData) => {
     /*   {
      *      "type":"input-map",
@@ -311,6 +332,17 @@ exports.mapInputMap = (question, map, sqlData) => {
     switch (map['function']) {
         case 'timeDuration': question.input = timeDuration(map['args'][0]['field'] ? sqlData[map['args'][0]['field']] : map['args'][0]['value'], map['args'][1]['field'] ? sqlData[map['args'][1]['field']] : map['args'][1]['value'])
             break;
+        case 'addHours': {
+            const hours = map['args'].map(arg => {
+                if (arg['value']) {
+                    return arg['value'];
+                } else {
+                    return sqlData[arg['field']];
+                }
+            })
+            question.input = addHours(hours)
+            break;
+        }
     }
 }
 
@@ -323,4 +355,8 @@ const timeDuration = (startTime, endTime) => {
     var durationMins = totalMins % 60;
     var durationHours = (totalMins - durationMins) / 60;
     return durationHours + ' hour(s), ' + durationMins + ' minute(s)';
+}
+
+const addHours = (hours) => {
+    return hours.reduce((acc, val) => { return acc + val; }, 0);
 }
